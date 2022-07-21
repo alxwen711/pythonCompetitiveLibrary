@@ -6,20 +6,37 @@ Fermat algorithms for quickly calculating n choose k mod r
 Note: fermat_array does not work if r < 2, in this case use
 the single case function fermat_calc.
 
+fermat_calc(n,k,r)
+returns n choose k mod r in O(n) time
+
 fermat_array(n,k,r)
 returns two arrays facts and invs to be used with fermat_comb
 parameters inserted are the maximum values, ie. for calculating
 100 choose 50 mod 727 using this function, parameters should be
-fermat_array(100,50,727)
+fermat_array(100,50,727). Takes O(n log n) time to complete but
+leads to O(1) lookups
 
 
 fermat_comb(n,k,r,facts,invs)
-returns n choose k mod r
+returns n choose k mod r in O(1) time
 must use fermat_array to get facts and invs
 
 """
+
+def fermat_calc(n: int, k: int, r: int) -> int:
+    if k > n or r == 1: return 0
+    if n == 0 or k == 0: return 1
+    
+    #numerator*denominator**(r-2) % r
+    num,dom = 1,1
+    for i in range(n-k+1,n+1):
+        num = (num*i) % r
+    for j in range(1,k+1):
+        dom = (dom*j) % r
+    return num*pow(dom,r-2-r) % r
+
+
 def fermat_array(n: int, k: int, r: int) -> list[list[int],list[int]]:
-    #O(n log n) time
     if k >= r or r < 3: return None, None 
     arLen = n+k+3 #array length
     factorials = [0]*arLen
@@ -32,7 +49,6 @@ def fermat_array(n: int, k: int, r: int) -> list[list[int],list[int]]:
 
 
 def fermat_comb(n: int, k: int, r: int, facts: list[int], invs: list[int]) -> int:
-    #O(1) lookup time
     if facts == None or invs == None or r == 0: return -1 #array or div 0 error
     #trivial cases
     if k > n or r == 1: return 0 
