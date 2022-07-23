@@ -19,7 +19,6 @@ leads to O(1) lookups
 fermat_comb(n,k,r,facts,invs)
 returns n choose k mod r in O(1) time
 must use fermat_array to get facts and invs
-
 """
 
 def fermat_calc(n: int, k: int, r: int) -> int:
@@ -56,7 +55,7 @@ def fermat_comb(n: int, k: int, r: int, facts: list[int], invs: list[int]) -> in
 
 
 if __name__ == "__main__":
-    #include example use here
+    #example use
     r = 100000007
     facts,invs = fermat_array(100,100,r)
     n = 10
