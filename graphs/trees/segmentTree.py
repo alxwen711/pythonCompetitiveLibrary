@@ -1,15 +1,4 @@
 """
-var notes for documentation/refactoring:
-lr -> left range
-rr -> right range
-lc -> left child
-rc -> right child
-n -> node
-nl -> len(nodes)
-
-current setup is for returning maximum of any given contiguous subarray
-O(n) set up time, O(log n) queries
-
 Author: alxwen711 (Alex Wen)
 Last updated: 7/23/22
 
@@ -23,15 +12,16 @@ Defines node object for the segment tree. lr/rr determines the
 subarray's endpoints, val(ue) is determined by seg_func(), and
 lc/rc stands for left child/right child respectively.
 
-seg_func()
-function for defining the value stored in the seg tree.
+seg_func(a,b)
+function for defining the value stored in the seg tree. a and b are two
+values obtained from two different nodes in the tree.
 
-create_segtree()
+create_segtree(ar)
+creates a segtree with the given ar(ray).
 
-seg_search()
-[l,r] inclusive, n is the head node of the Tree to be searched.
-
-
+seg_search(left,right,node)
+returns the value for subarray [left,right] inclusive.
+node to be given is the head node of the Tree to be searched.
 """
 
 class Tree:
@@ -42,12 +32,12 @@ class Tree:
         self.lc = lc #left child
         self.rc = rc #right child
 
-def seg_func(a,b): #seg_tree function, edit this according to need
+def seg_func(a,b) -> int: #seg_tree function, edit this according to need
     # example for finding maximum of subarray
     return max(a,b)
     
         
-def seg_search(left,right,node): #searching function
+def seg_search(left,right,node) -> int: #searching function
 
     if left == node.lr and right == node.rr: return node.val #exact range covered by current node
     if node.lc == None: return look(left,right,node.rc) #special last node case
