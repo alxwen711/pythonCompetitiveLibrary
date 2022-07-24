@@ -5,10 +5,12 @@ Repository containing useful templates for data structures and algorithms writte
 # Contributing
 This is a relatively new project I've began so all contributions are greatly appreciated. For any documentation edits (in Python files or README) simply create a pull request and I'll review it as soon as I can. 
 
-If you want to add a new Python algorithm/data structure then use the format given in newTemplate.py. The goal is to create the algorithm in Python so that it is:
+If you want to add a new Python algorithm/data structure then use the format given in newTemplate.py by writing your own code below the intial multiline comment. For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. 
+
+Keep in mind that for this project, the goal for each Python file is for it to be:
 
 - Easy to understand
-- Can be easily modified to fit specific problems
+- Easy to modify for specific problems
 - Practical for use in competition
 
 I will typically review pull requests around 2-4 UTC daily. This is mainly because I do not want to be merging while a CodeForces/CodeChef contest is occuring, and they do not occur at this time. 
