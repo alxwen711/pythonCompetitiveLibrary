@@ -5,7 +5,7 @@ Repository containing useful templates for data structures and algorithms writte
 # Contributing
 This is a relatively new project I've began so all contributions are greatly appreciated. For any documentation edits (in Python files or README) simply create a pull request and I'll review it as soon as I can. 
 
-If you want to add a new Python algorithm/data structure then use the format given in newAlgorithm.py by writing your own code below the intial multiline comment. For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. 
+If you want to add a new Python algorithm/data structure then use the format given in [newAlgorithm.py](./newAlgorithm.py) by writing your own code below the intial multiline comment. For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. 
 
 If you are creating a new template file, do not use newAlgorithm.py. Refer to [baseTemplate.py](./implementation/baseTemplate.py) as an example.
 
