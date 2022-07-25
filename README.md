@@ -17,5 +17,5 @@ Keep in mind that for this project, the goal for each Python file is for it to b
 
 I will typically review pull requests around 2-4 UTC daily. This is mainly because I do not want to be merging while a CodeForces/CodeChef contest is occuring, and they do not occur at this time. 
 
-If I have not responded to a PR after two weeks without reason then and ONLYthen you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above. 
+If I have not responded to a PR after two weeks without reason then and ONLY then you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above. 
 
