@@ -1,5 +1,14 @@
-# py-competitive-library
-Repository containing useful templates for data structures and algorithms written in Python. Python as a competitive programming language is viable.
+# Python Competitive Library
+This is a repository containing useful Python files for competitive programming. 
+
+# How to Use
+The files are separated into three main folders:
+
+- **Algorithms** for implementation of DFS/BFS, binary/ternary search, dynamic programming, computational math problems, and other problem solving procedures.
+
+- **Data Structures** for implementation of trees, graphs, hashmaps, stacks, queues, heaps, and other more complex structures.
+
+- **Templates** for basic code you would insert at the beginning of any file for competitive programming. One example are shorthand functions to make processing input easier found in [baseTemplate.py](./templates/baseTemplate.py).
 
 
 # Contributing
