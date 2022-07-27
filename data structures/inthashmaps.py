@@ -1,26 +1,30 @@
-#WIP, add proper documentation
 """
 Author: alxwen711 (Alex Wen)
 Last updated: July 27th, 2022
 
-frequency map/hash table file
+Set of functions for returning the frequency of each value in
+an integer array in either another array or a dictionary. For
+character based arrays use strhashmaps.
 
-given array, return frequency of each value in array/dict
-with dict exact positions can be located
-letter variations can be included here as well
+All functions take O(n) time to complete.
 
-func_a(x,y,z)
-[explain func_a and its parameters]
-func_b(x,y)
-[explain func_b and its parameters]
-Other useful things to note for documenting:
-- Edge cases that the algorithm may not work for
-- Runtime (O(1),O(log n),O(n),O(n^2),etc.)
+freq_ar(ar,limit)
+Returns a frequency array h where h[x-1] contains the number of
+times value x shows up in ar. limit is supposed to be the maximum
+value in ar and controls the size of h. If ar is None then an empty
+array is returned.
+
+freq_dict(ar,pos)
+Returns a dictionary d where d[x] contains either:
+- the number of times x shows up in ar if pos == False
+- an array containing the indices where x is located in ar if pos == True
+If ar is None then an empty dict is returned.
 """
 
 from random import randint #for example use
 
 def freq_ar(ar: list[int], limit: int) -> list[int]:
+    if ar == None: return []
     h = [0]*limit #change to limit+1 if you want h[1] = freq of 1
     for i in range(len(ar)):
         h[ar[i]-1] += 1 #change to h[ar[i]] if you want h[1] = freq of 1
@@ -28,6 +32,7 @@ def freq_ar(ar: list[int], limit: int) -> list[int]:
 
 def freq_dict(ar: list[int], pos: bool) -> dict:
     d = {}
+    if ar == None: return d
     for i in range(len(ar)):
         x = ar[i]
         if d.get(x) == None:
