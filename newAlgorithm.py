@@ -16,17 +16,12 @@ Other useful things to note for documenting:
 - Runtime (O(1),O(log n),O(n),O(n^2),etc.)
 """
 
-
-
-
-
 def func_a(x,y,z) -> str:
     return "hello"
-
 
 def func_b(x,y) -> str:
     return "world"
 
 if __name__ == "__main__":
     #[include an example use here]
-    print(func_a(1,1,1),func_b(1,1))
+    print(func_a(1,"a",True),func_b(False,[1,2]))

@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: 7/23/22
+Last updated: July 27th, 2022
 
 Segment tree template; main use is for problems where queries involving
 a contiguous subarray are numerous. Assuming that the segment function is
@@ -37,7 +37,7 @@ def seg_func(a,b) -> int: #seg_tree function, edit this according to need
     return max(a,b)
     
         
-def seg_search(left,right,node) -> int: #searching function
+def seg_search(left: int, right: int, node: Tree) -> int: #searching function
 
     if left == node.lr and right == node.rr: return node.val #exact range covered by current node
     if node.lc == None: return look(left,right,node.rc) #special last node case
