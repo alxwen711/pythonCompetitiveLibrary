@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: 7/23/22
+Last updated: July 29th, 2022
 
 Fermat algorithms for quickly calculating n choose k mod r
 Note: use the single case function fermat_calc if r < 2
