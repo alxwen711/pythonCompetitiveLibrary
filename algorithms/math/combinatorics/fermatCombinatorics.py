@@ -31,12 +31,12 @@ def fermat_calc(n: int, k: int, r: int) -> int:
         num = (num*i) % r
     for j in range(1,k+1):
         dom = (dom*j) % r
-    return num*pow(dom,r-2-r) % r
+    return num*pow(dom,r-2,r) % r
 
 
 def fermat_array(n: int, k: int, r: int) -> list[list[int],list[int]]:
     if k >= r or r < 3: return None, None 
-    arLen = n+k+3 #array length
+    arLen = max(n,k)+3 #array length
     factorials = [0]*arLen
     inverses = [0]*arLen
     factorials[0], inverses[0] = 1,1
