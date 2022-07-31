@@ -16,7 +16,7 @@ Other useful things to note for documenting:
 - Runtime (O(1),O(log n),O(n),O(n^2),etc.)
 """
 
-def func_a(int: x, str: y,z) -> str:
+def func_a(x: int, y: str, z: bool) -> str:
     return "hello"
 
 def func_b(x,y) -> str:
