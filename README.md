@@ -14,7 +14,7 @@ The files are separated into three main folders:
 # Contributing
 This is a relatively new project I've began so all contributions are greatly appreciated. For any documentation edits (in Python files or README) simply create a pull request and I'll review it as soon as I can. 
 
-If you want to add a new algorithm or data structure file then use the format given in [newAlgorithm.py](./contributing/algorithm.py) by writing your own code below the intial multiline comment. For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTest.py](./contributing/algorithmTest.py). 
+If you want to add a new algorithm or data structure file then use the format given in [algorithm.py](./contributing/algorithm.py) by writing your own code below the intial multiline comment. For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTest.py](./contributing/algorithmTest.py). 
 
 If you are creating a new template file, newAlgorithm.py is unnecessary. Refer to [baseTemplate.py](./implementation/baseTemplate.py) as an example.
 
