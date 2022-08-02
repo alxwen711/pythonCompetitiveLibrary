@@ -1,4 +1,3 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
 Last updated: August 2nd, 2022
@@ -7,9 +6,6 @@ Template for the queue data structure. The stack is made up of a 1D
 mutuable array. All queue methods are optimized to run as fast as
 possible. length tracks the number of elements added to the queue and
 pt tracks how many elements have been dequeued.
-
-empty()
-checks if the queue is empty.
 
 add(x)
 adds element x to the queue.
@@ -20,6 +16,15 @@ using self.q.pop(0) would take O(n) time per query.
 
 top()
 returns the next element in the queue, but does not remove it.
+
+empty()
+checks if the queue is empty.
+
+Note: This data structure will slow down significantly with a large
+number of entries. It can handle up to about 500000 values added to
+it in under a second consistently, but this will vary depending on
+the testing system used. Further improvements that reduce the slowdown
+from excessive memory usage are being looked at.
 """
 
 class queue:
@@ -33,13 +38,18 @@ class queue:
         self.length += 1
 
     def dequeue(self):
-        if self.pt == self.length: return None 
+        if self.empty(): return None 
         x = self.q[self.pt]
         self.pt += 1
         return x
 
     def top(self):
+        if self.empty(): return None
         return self.q[self.pt]
+
+    def empty(self) -> bool:
+        if self.pt == self.length: return True
+        return False
 
 
 
