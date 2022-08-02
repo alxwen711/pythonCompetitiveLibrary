@@ -22,10 +22,6 @@ top()
 returns the next element in the queue, but does not remove it.
 """
 
-
-
-
-
 class queue:
     def __init__(self):
         self.q = list()
