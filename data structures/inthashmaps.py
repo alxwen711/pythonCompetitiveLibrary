@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: July 27th, 2022
+Last updated: August 6th, 2022
 
 Set of functions for returning the frequency of each value in
 an integer array in either another array or a dictionary. For
@@ -13,12 +13,13 @@ Returns a frequency array h where h[x-1] contains the number of
 times value x shows up in ar. limit is supposed to be the maximum
 value in ar and controls the size of h. If ar is None then an empty
 array is returned.
+
 Warning: freq_ar will exceed memory limits of most contests if limit
 is too high. On Codeforces this will happen if limit = 10^9.
 
 freq_dict(ar,pos)
 Returns a dictionary d where d[x] contains either:
-- the number of times x shows up in ar if pos == False
+- the number of times x shows up in ar if pos == False (default value)
 - an array containing the indices where x is located in ar if pos == True
 If ar is None then an empty dict is returned.
 """
