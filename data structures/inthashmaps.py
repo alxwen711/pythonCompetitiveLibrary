@@ -32,7 +32,7 @@ def freq_ar(ar: list[int], limit: int) -> list[int]:
         h[ar[i]-1] += 1 #change to h[ar[i]] for h[1] = freq of 1
     return h
 
-def freq_dict(ar: list[int], pos: bool) -> dict:
+def freq_dict(ar: list[int], pos = False) -> dict:
     d = {}
     if ar == None: return d
     for i in range(len(ar)):
@@ -52,6 +52,6 @@ if __name__ == "__main__":
         ar.append(randint(1,5))
     print("given array:",str(ar))
     print("freqency array:",str(freq_ar(ar,5)))
-    print("frequency dictionary:",str(freq_dict(ar,False)))
+    print("frequency dictionary:",str(freq_dict(ar)))
     print("dict with position:",str(freq_dict(ar,True)))
         
