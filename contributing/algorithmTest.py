@@ -1,5 +1,6 @@
-from algorithm import *
+import sys
 import unittest
+sys.path.append("../") #insert path to directory here
 
 class algorithm_test(unittest.TestCase):
 

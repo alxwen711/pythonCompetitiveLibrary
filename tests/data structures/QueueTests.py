@@ -1,7 +1,9 @@
-from Queue import queue
 from random import randint
 import unittest
+import sys
+sys.path.append("../../data\ structures")
 
+from Queue import queue
 
 class queue_test(unittest.TestCase):
 
