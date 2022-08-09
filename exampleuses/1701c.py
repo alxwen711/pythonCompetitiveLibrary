@@ -1,3 +1,15 @@
+"""
+Author: alxwen711 (Alex Wen)
+Last updated: August 9th, 2022
+
+Problem: Codeforces 1701C (https://codeforces.com/contest/1701/problem/C)
+
+Files used:
+utility/baseTemplate.py
+algorithms/search\ algorithms/binarySearch.py
+datastructures/inthashmaps.py
+"""
+
 import sys
 
 #input functions
