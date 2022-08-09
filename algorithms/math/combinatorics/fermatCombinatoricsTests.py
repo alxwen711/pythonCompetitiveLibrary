@@ -1,6 +1,4 @@
-import sys
 import unittest
-sys.path.append("../../../../algorithms/math/combinatorics")
 
 from fermatCombinatorics import *
 

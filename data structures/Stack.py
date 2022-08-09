@@ -15,6 +15,9 @@ returns and removes the top element in the stack.
 
 top()
 returns the top element in the stack, but does not remove it.
+
+len()
+returns the number of elements in the stack.
 """
 
 
@@ -35,7 +38,8 @@ class stack:
     def top(self):
         return self.s[-1]
 
-
+    def length(self) -> int:
+        return len(self.s)
 
 if __name__ == "__main__":
     x = stack() #create new stack
