@@ -1,7 +1,7 @@
 import sys
 import unittest
-from datastructures import Stack
-#sys.path.insert(0,"../../data\ structures") #insert path to directory here
+sys.path.insert(0,"../") #insert path to directory here
+from pythonCompetitiveLibrary.datastructures import Stack
 from Stack import stack
 from random import randint
 
