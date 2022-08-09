@@ -1,6 +1,7 @@
 import sys
 import unittest
-sys.path.append("../") #insert path to directory here
+from algorithm import * #change to filename
+
 
 class algorithm_test(unittest.TestCase):
 
