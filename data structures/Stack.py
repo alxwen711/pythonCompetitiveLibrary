@@ -1,11 +1,10 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 2nd, 2022
+Last updated: August 10th, 2022
 
 Template for the stack data structure. The stack is made up of a 1D
 mutuable array. All stack methods are optimized to run as fast as
-possible.
+possible (O(1) per operation).
 
 push(x)
 adds element x to the stack.
@@ -19,10 +18,6 @@ returns the top element in the stack, but does not remove it.
 len()
 returns the number of elements in the stack.
 """
-
-
-
-
 
 class stack:
     def __init__(self):
