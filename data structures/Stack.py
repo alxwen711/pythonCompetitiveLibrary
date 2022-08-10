@@ -32,6 +32,7 @@ class stack:
         self.s.append(x)
 
     def pop(self):
+        if self.length() == 0: return None #empty list
         x = self.s.pop()
         return x
 
