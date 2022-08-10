@@ -13,7 +13,7 @@ note: value is only consistently accurate to ~13-14 significant figures.
 
 from math import sqrt
 
-def pythagoras(pt_a: list[float], pt_b: list[float]) -> float:
+def pythagoras(pt_a: list, pt_b: list) -> float:
     return sqrt((pt_a[0]-pt_b[0])**2+(pt_a[1]-pt_b[1])**2)
 
 def heron_triangle(a: float, b: float, c: float) -> float:
@@ -21,7 +21,7 @@ def heron_triangle(a: float, b: float, c: float) -> float:
     return sqrt(s*(s-a)*(s-b)*(s-c))
 
 
-def heron_area(ar: list[list[float]]) -> float:
+def heron_area(ar: list[list]) -> float:
     ans = 0
     for i in range(len(ar)-2):
         x,y = i+1,i+2
