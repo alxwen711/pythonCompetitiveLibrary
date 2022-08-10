@@ -15,6 +15,18 @@ class integration_test(unittest.TestCase):
         assert error < 0.00000001
 
 
+class unit_test(unittest.TestCase):
+
+    def test_py(self): #classic 3-4-5 side length triangle
+        error = abs(pythagoras([0,3],[4,0])-5)
+        assert error < 0.00000001
+
+    def test_py(self): #area of equilateral triangle with side length 3
+        error = abs(heron_triangle(3,3,3)-3.897114317029974)
+        assert error < 0.00000001
+
+    
+
 
 if __name__ == "__main__":
     unittest.main()
