@@ -24,10 +24,36 @@ class ar_test(unittest.TestCase):
         for k in range(448):
             assert br[k] == 448
 
-#class dict_test(unittest.TestCase): #assumes freq_ar is working
+class dict_test(unittest.TestCase): #assumes freq_ar is working
+
+    def test_freq(self): #test pos = False
+        ar = list()
+        for i in range(100000):
+            ar.append(randint(1,100000))
+        d = freq_dict(ar)
+        test = freq_ar(ar,100000)
+        for j in range(100000):
+            x = test[j]
+            if x == 0:
+                assert d.get(j+1) == None
+            else:
+                assert d[j+1] == x 
+
+    def test_pos(self): #test pos = True
+        ar = list()
+        for i in range(100000):
+            ar.append(randint(1,100000))
+        d = freq_dict(ar,True)
+        correct = 0
+        for j in range(100000):
+            if d.get(j+1) != None:
+                for k in range(len(d[j+1])):
+                    if ar[d[j+1][k]] == j+1: correct += 1
+        assert correct == 100000
 
     
 
+    
 
 if __name__ == "__main__":
     unittest.main()
