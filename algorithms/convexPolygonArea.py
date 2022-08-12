@@ -1,4 +1,3 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
 Last updated: August 7th, 2022
@@ -9,6 +8,9 @@ Algorithms for finding the area of a convex polygon.
 - Shoelace method (to be updated)
 
 note: value is only consistently accurate to ~13-14 significant figures.
+
+points input are expected to be in the format
+[[x1,y1],[x2,y2],[x3,y3],[x4,y4]...]
 """
 
 from math import sqrt
@@ -19,7 +21,6 @@ def pythagoras(pt_a: list, pt_b: list) -> float:
 def heron_triangle(a: float, b: float, c: float) -> float:
     s = (a+b+c)/2
     return sqrt(s*(s-a)*(s-b)*(s-c))
-
 
 def heron_area(ar: list[list]) -> float:
     ans = 0

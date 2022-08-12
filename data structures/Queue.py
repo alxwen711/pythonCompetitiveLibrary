@@ -50,7 +50,7 @@ class queue:
         if self.empty(): return None
         return self.q[self.pt]
 
-    def length(self):
+    def length(self) -> int:
         return self.l - self.pt
 
     def empty(self) -> bool:

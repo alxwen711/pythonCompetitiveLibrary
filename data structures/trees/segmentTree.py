@@ -32,12 +32,12 @@ class Tree:
         self.lc = lc #left child
         self.rc = rc #right child
 
-def seg_func(a,b) -> int: #seg_tree function, edit this according to need
+def seg_func(a,b): #seg_tree function, edit this according to need
     # example for finding maximum of subarray
     return max(a,b)
     
         
-def seg_search(left: int, right: int, node: Tree) -> int: #searching function
+def seg_search(left: int, right: int, node: Tree): #searching function
 
     if left == node.lr and right == node.rr: return node.val #exact range covered by current node
     if node.lc == None: return look(left,right,node.rc) #special last node case
@@ -65,11 +65,10 @@ def seg_search(left: int, right: int, node: Tree) -> int: #searching function
 
 
 
-def create_segtree(ar: list[int]) -> Tree:
+def create_segtree(ar: list) -> Tree:
     ar_len = len(ar)
 
     #create a node for each element in the list, this is the bottom layer
-    #TODO: seperate the base node creation into a seperate method like seg_func
     nodes = list()
     for i in range(ar_len):
         tmp = Tree(ar[i],i,i,None,None)
@@ -82,6 +81,7 @@ def create_segtree(ar: list[int]) -> Tree:
             left,right = nodes[2*j],nodes[2*j+1] #children of new node
             tmp = Tree(seg_func(left.val,right.val),left.lr,right.rr,left,right)
             layer.append(tmp)
+            
         if ar_len % 2 == 1: #odd # of nodes, last node special case
             right = nodes[-1]
             tmp = Tree(right.val,right.lr,right.rr,None,right)

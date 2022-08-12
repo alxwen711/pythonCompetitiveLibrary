@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 6th, 2022
+Last updated: August 11th, 2022
 
 Set of functions for returning the frequency of each value in
 an integer array in either another array or a dictionary. For
@@ -22,6 +22,15 @@ Returns a dictionary d where d[x] contains either:
 - the number of times x shows up in ar if pos == False (default value)
 - an array containing the indices where x is located in ar if pos == True
 If ar is None then an empty dict is returned.
+
+freq_str(s)
+Returns a int array of 26 values containing the frequency of each character.
+(to be coded here)
+
+Note for update:
+Likely going to just make this a more general hashmaps file, no need
+to separate strhashmaps. freq_dict can be used with strings. freq_ar is
+still only for integers.
 """
 
 from random import randint #for example use
@@ -33,7 +42,7 @@ def freq_ar(ar: list[int], limit: int) -> list[int]:
         h[ar[i]-1] += 1 #change to h[ar[i]] for h[1] = freq of 1
     return h
 
-def freq_dict(ar: list[int], pos = False) -> dict:
+def freq_dict(ar, pos = False) -> dict:
     d = {}
     if ar == None: return d
     for i in range(len(ar)):

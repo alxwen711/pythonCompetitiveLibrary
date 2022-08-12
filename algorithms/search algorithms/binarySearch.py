@@ -21,23 +21,29 @@ on the problem.
 IMPORTANT NOTES:
 The functions are default set to adjust the high endpoint if bfunc returns
 True and to adjust the low endpoint if bfunc returns False.
+
 The second last line in bsearch may need to be adjusted to test the low endpoint
 depending on the problem.
+
+If the range being searched is not solely integers, replace bsearch's first two
+lines with the following:
+while high - low > x: (x = maximum error allowed)
+    mid = (low+high)/2
 """
 
-def bfunc(x: int, ar = None) -> bool:
+def bfunc(x, ar = None) -> bool:
     #for example use
     if x >= ar: return True
     return False
 
 
-def bsearch(low: int, high: int, ar = None) -> int:
+def bsearch(low, high, ar = None):
     while high - low > 1:
-        mid = (low+high)//2
+        mid = (low+high)//2 
         if bfunc(mid,ar): high = mid
         else: low = mid
 
-    #diff between high and low is 1 (or 0)
+    #diff is small enough
     if bfunc(high,ar): return high
     else: return low
 
