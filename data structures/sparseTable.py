@@ -9,7 +9,7 @@ Sparse table for returning range minimum queries (RMQ) in O(1) time.
 
 
 
-def sparse(ar):
+def create_sparse(ar):
     ans = list()
     ans.append(ar.copy())
     l = 1
@@ -25,7 +25,7 @@ def sparse(ar):
     return ans
 
 
-def f(l,h,ar):
+def query(l,h,ar):
     length = h-l+1
     two = 1
     ex = 0
@@ -38,9 +38,9 @@ def f(l,h,ar):
 
 if __name__ == "__main__":
     x = [7,8,7,0,9,8,6,4,3]
-    a = sparse(x)
+    a = create_sparse(x)
     print(a)
     for i in range(len(x)):
         for j in range(i,len(x)):
-            print(i,j,f(i,j,a))
-            assert f(i,j,a) == min(x[i:j+1])
+            print(i,j,query(i,j,a))
+            assert query(i,j,a) == min(x[i:j+1])
