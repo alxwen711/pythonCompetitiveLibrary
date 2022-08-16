@@ -6,7 +6,7 @@ The files are separated into four main folders:
 
 - [**Algorithms**](./algorithms) for implementation of DFS/BFS, binary/ternary search, dynamic programming, computational math problems, and other problem solving procedures.
 
-- [**Data Structures**](./data\ structures) for implementation of trees, graphs, hashmaps, stacks, queues, heaps, and other more complex structures.
+- [**Data Structures**](./data-structures) for implementation of trees, graphs, hashmaps, stacks, queues, heaps, and other more complex structures.
 
 - [**Utility**](./utility) for code that does not fit into one of the other two catagories. This can include input shorthands inserted at the beginning of any file for efficiency purpose or testcase generators. One example are shorthand functions to make processing input easier found in [baseTemplate.py](./templates/baseTemplate.py).
 
