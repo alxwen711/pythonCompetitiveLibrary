@@ -4,13 +4,13 @@ This is a repository containing useful Python files for competitive programming.
 # How to Use
 The files are separated into four main folders:
 
-- **Algorithms** for implementation of DFS/BFS, binary/ternary search, dynamic programming, computational math problems, and other problem solving procedures.
+- [**Algorithms**](./algorithms) for implementation of DFS/BFS, binary/ternary search, dynamic programming, computational math problems, and other problem solving procedures.
 
-- **Data Structures** for implementation of trees, graphs, hashmaps, stacks, queues, heaps, and other more complex structures.
+- [**Data Structures**](./data\ structures) for implementation of trees, graphs, hashmaps, stacks, queues, heaps, and other more complex structures.
 
-- **Utility** for code that does not fit into one of the other two catagories. This can include input shorthands inserted at the beginning of any file for efficiency purpose or testcase generators. One example are shorthand functions to make processing input easier found in [baseTemplate.py](./templates/baseTemplate.py).
+- [**Utility**](./utility) for code that does not fit into one of the other two catagories. This can include input shorthands inserted at the beginning of any file for efficiency purpose or testcase generators. One example are shorthand functions to make processing input easier found in [baseTemplate.py](./templates/baseTemplate.py).
 
-- **Example Uses** for using the above algorithm/data structure templates in actual code for programming contests. Each solution file begins with the programming question it is for as well as the methods from this library used.
+- [**Example Uses**](./exampleuses) for using the above algorithm/data structure templates in actual code for programming contests. Each solution file begins with the programming question it is for as well as the methods from this library used.
 
 # Contributing
 This is a relatively new project I've began so all contributions are greatly appreciated. The main to keep in mind is that each Python file should be:
