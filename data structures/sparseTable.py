@@ -1,7 +1,6 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 15th, 2022
+Last updated: August 17th, 2022
 
 Sparse table for returning range minimum queries (RMQ) in O(1) time.
 Initial creation of the table takes O(n log n) time.
@@ -19,21 +18,20 @@ but can be used similarly to a segment tree for O(log n) queries. Doing this
 will require significant edits to this function.
 """
 
-
-
 def create_sparse(ar: list) -> list:
     s = list()
     s.append(ar)
-    l = 1
+    prevrow = 0
     dist = 2 #length of subarray representation
     while dist <= len(ar):
-        tmp = list()
-        for i in range(len(ar)-dist+1):
+        x = len(ar)-dist+1
+        tmp = [0]*x
+        for i in range(x):
             #find [i:i+dist]
-            tmp.append(min(s[l-1][i],s[l-1][i+dist//2]))
+            tmp[i] = (min(s[prevrow][i],s[prevrow][i+dist//2]))
         s.append(tmp)
-        l += 1
-        dist *= 2
+        prevrow += 1
+        dist = dist << 1
     return s
 
 
@@ -42,9 +40,13 @@ def query(l: int, h: int, ar: list[list]):
     #find largest x where 2**x <= length
     two = 1
     ex = 0
-    while 2*two <= length:
-        two = two*2
+    while True:
         ex += 1
+        two = two << 1
+        if two > length:
+            two = two >> 1
+            ex -= 1
+            break
     if length == two: return ar[ex][l]
     else: return min(ar[ex][l],ar[ex][h-two+1])
 

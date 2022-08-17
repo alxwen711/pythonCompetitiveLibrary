@@ -13,10 +13,10 @@ class sparse_test(unittest.TestCase):
             for j in range(i,len(x)):
                 #print(i,j,query(i,j,a)) for validation
                 assert query(i,j,a) == min(x[i:j+1])
-
+                
     
     def test_speed(self):
-        #table creation time is O(n log n), should take about 1 second
+        #table creation time is O(n log n), should take just under 1 second
         ar = list()
         n = 100000
         for i in range(n):
