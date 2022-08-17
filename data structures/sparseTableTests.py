@@ -17,14 +17,24 @@ class sparse_test(unittest.TestCase):
     
     def test_speed(self):
         #table creation time is O(n log n), should take just under 1 second
-        ar = list()
         n = 100000
+        ar = [0]*n
         for i in range(n):
-            ar.append(i)
+            ar[i] = i
         t = create_sparse(ar) #table
         for j in range(n):
             a,b = randint(0,n-1),randint(0,n-1)
             assert query(min(a,b),max(a,b),t) == min(a,b)
+
+
+    def test_single(self):
+        n = 1000
+        ar = [0]*n
+        for i in range(n):
+            ar[i] = randint(0,1000000000)
+        t = create_sparse(ar) #table
+        for j in range(n):
+            assert query(j,j,t) == ar[j]
 
 if __name__ == "__main__":
     unittest.main()
