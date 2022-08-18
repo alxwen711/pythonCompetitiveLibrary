@@ -9,16 +9,30 @@ The first value is the number of nodes in the graph
 Then follows a series of lines with values u and v
 representing an edge between two nodes.
 The edges assume the nodes are being referred to as 1 to n (no node #0)
+
+
+To refer to a certain node by id, this is usually done with graph[id],
+where graph is a list[Node].
+
+nodeList(n)
+Creates an intial list[Node] of length n. Each node has an ID according to
+their index in the list, but ar[x] will also suffice for referring to node #x.
+
+edge(a,b)
+Adds an undirected edge between two given Nodes.
 """
 
 class Node:
-    def __init__(self,val):
+    def __init__(self,ID,val = 0,colour = 0):
+        self.ID = ID
         self.val = val
+        self.colour = colour
         self.connected = list()
 
     def add(self,x):
         self.connected.append(x)
 
+    
 def nodeList(n: int) -> list[Node]:
     ar = list()
     ar.append(None)
