@@ -1,6 +1,6 @@
 import sys
 import unittest
-from inthashmaps import *
+from hashmaps import *
 from random import randint
 
 class ar_test(unittest.TestCase):

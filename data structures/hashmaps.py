@@ -1,36 +1,30 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 11th, 2022
+Last updated: August 18th, 2022
 
 Set of functions for returning the frequency of each value in
-an integer array in either another array or a dictionary. For
-character based arrays use strhashmaps.
-
+an array in either another array or a dictionary.
 All functions take O(n) time to complete.
 
 freq_ar(ar,limit)
 Returns a frequency array h where h[x-1] contains the number of
-times value x shows up in ar. limit is supposed to be the maximum
+times value x shows up in a list[int]. limit is supposed to be the maximum
 value in ar and controls the size of h. If ar is None then an empty
 array is returned.
 
 Warning: freq_ar will exceed memory limits of most contests if limit
 is too high. On Codeforces this will happen if limit = 10^9.
 
+freq_str(s)
+Returns a int array of 26 values containing the frequency of each
+character in a string. This can also be used for list[chr]. The
+method assumes all the characters are lower case.
+
 freq_dict(ar,pos)
 Returns a dictionary d where d[x] contains either:
 - the number of times x shows up in ar if pos == False (default value)
 - an array containing the indices where x is located in ar if pos == True
 If ar is None then an empty dict is returned.
-
-freq_str(s)
-Returns a int array of 26 values containing the frequency of each character.
-(to be coded here)
-
-Note for update:
-Likely going to just make this a more general hashmaps file, no need
-to separate strhashmaps. freq_dict can be used with strings. freq_ar is
-still only for integers.
 """
 
 from random import randint #for example use
@@ -41,6 +35,15 @@ def freq_ar(ar: list[int], limit: int) -> list[int]:
     for i in range(len(ar)):
         h[ar[i]-1] += 1 #change to h[ar[i]] for h[1] = freq of 1
     return h
+
+
+def freq_str(s) -> list[int]:
+    ar = [0]*26
+    offset = 97 #replace with 65 if upper
+    for i in range(len(s)):
+        ar[ord(s[i])-offset] += 1
+    return ar
+    
 
 def freq_dict(ar, pos = False) -> dict:
     d = {}
