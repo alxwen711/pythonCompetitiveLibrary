@@ -5,6 +5,7 @@ Last updated: August 17th, 2022
 Sparse table for returning range minimum queries (RMQ) in O(1) time.
 Initial creation of the table takes O(n log n) time.
 The functions below can be altered for other sparse table uses.
+The default settings are for returning the minimum value in a subarray.
 
 create_sparse(ar)
 Creates a sparse array given an array ar. This is usually used with
@@ -16,6 +17,12 @@ query(l,r,ar)
 Runs a query using a created sparse table. This query normally takes O(1) time,
 but can be used similarly to a segment tree for O(log n) queries. Doing this
 will require significant edits to this function.
+
+exact_query(l,r,ar)
+Similar to query, but will instead find exact subarray fragments to create the
+subarray, ie. for query(3,12,A), subarrays A[3:11] and A[5:13] will be used,
+but exact_query(3,12,A) will call A[3:11] and A[11:13]. This method takes O(log n)
+time to run.
 """
 
 def create_sparse(ar: list) -> list:
@@ -50,6 +57,20 @@ def query(l: int, h: int, ar: list[list]):
     if length == two: return ar[ex][l]
     else: return min(ar[ex][l],ar[ex][h-two+1])
 
+def exact_query(l: int, h: int, ar: list[list]):
+    #default setting is to find minimum of subarray
+    length = h-l+1
+    s = str(bin(length))[2:]
+    two = len(s)
+    pt = l
+    ans = 9999999999999999999999999 
+    for i in range(two):
+        if s[i] == "1":
+            ans = min(ans,ar[two-i-1][pt])
+            pt += 2**(two-i-1)
+    return ans
+            
+
 
 if __name__ == "__main__":
     x = [7,8,7,0,9,8,6,4,3]
@@ -59,3 +80,5 @@ if __name__ == "__main__":
         for j in range(i,len(x)):
             #print(i,j,query(i,j,a)) for validation
             assert query(i,j,a) == min(x[i:j+1])
+            assert exact_query(i,j,a) == min(x[i:j+1])
+            
