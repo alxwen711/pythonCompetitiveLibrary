@@ -18,7 +18,16 @@ def sieve(n: int) -> list[bool]:
                 ar[i*j] = False
     return ar
 
+def fsieve(n: int) -> list[int]: 
+    ar = [1]*max(2,(n+1))
+    ar[0] = 0
+    ar[1] = 0
+    for i in range(2,floor(sqrt(n))+1):
+        if ar[i] == 1: #i is prime
+            for j in range(2,n//i+1):
+                if ar[i*j] == 1: ar[i*j] = i
+    return ar
 
 
 if __name__ == "__main__":
-    print(sieve(20))
+    print(fsieve(20))
