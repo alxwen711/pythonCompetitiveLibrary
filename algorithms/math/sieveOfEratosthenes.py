@@ -14,7 +14,7 @@ def sieve(n: int) -> list[bool]:
     ar[1] = False
     for i in range(2,floor(sqrt(n))+1):
         if ar[i]: #i is prime
-            for j in range(2,n//i+1):
+            for j in range(i,n//i+1):
                 ar[i*j] = False
     return ar
 
@@ -24,7 +24,7 @@ def fsieve(n: int) -> list[int]:
     ar[1] = 0
     for i in range(2,floor(sqrt(n))+1):
         if ar[i] == 1: #i is prime
-            for j in range(2,n//i+1):
+            for j in range(i,n//i+1):
                 if ar[i*j] == 1: ar[i*j] = i
     return ar
 
