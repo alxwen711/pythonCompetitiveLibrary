@@ -5,6 +5,14 @@ Last updated: August 22nd, 2022
 
 Sieve of Eratosthenes implementation for finding all primes up to n.
 Runtime is O(n log log n), which is close enough to O(n) for most uses.
+
+sieve(n)
+Returns an array with n+1 elements. If A[x] == True, x is prime,
+otherwise x is composite.
+
+fsieve(n)
+Returns an array with n+1 elements. If A[x] == 1, x is prime,
+otherwise x's smallest prime factor is stored (useful for prime factorization).
 """
 from math import sqrt, floor
 
