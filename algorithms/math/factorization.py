@@ -1,7 +1,7 @@
 #WIP
 """
-Author: Alex Wen
-Last updated: August 22nd, 2022
+Author: alxwen711 (Alex Wen)
+Last updated: August 24th, 2022
 
 Algorithms for factoring numbers using Pollard's rho algorithm.
 Runtime for finding a factor is about O(x**0.5), where x is the
@@ -41,14 +41,7 @@ def find_factor(n: int) -> int:
 def factorize(n: int) -> list[list[int]]:
     d = {}
     while n != 1:
-        prev = find_factor(n)
-        x = 0
-        while True:
-            print(n,prev)
-            x = find_factor(prev)
-            if x == prev:
-                break
-            else: prev = x
+        x = find_factor(n)
         if d.get(x) == None: d[x] = 0
         d[x] += 1
         n = n // x
@@ -56,6 +49,10 @@ def factorize(n: int) -> list[list[int]]:
     k = list(d.keys())
     for i in range(len(k)):
         ar.append([k[i],d[k[i]]])
+        
+    #check each factor using a basic method, not all are prime
+
+    
     return ar
 
 
@@ -70,3 +67,5 @@ if __name__ == "__main__":
     #print(find_factor(1497631652873))
     print(find_factor(16))
     print(factorize(720))
+    #print(factorize(1497631652873*1497631652873))
+    print(factorize((2*3*5*7*11*13*17*19*23*29)**100))
