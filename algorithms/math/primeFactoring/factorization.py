@@ -84,8 +84,6 @@ def factorize(n: int) -> list[list[int]]:
 
 
 
-
-
 if __name__ == "__main__":
     #wip testing, formal testcases are wip
     #print(find_factor(1497631652873))
