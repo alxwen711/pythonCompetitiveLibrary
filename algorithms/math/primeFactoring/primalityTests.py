@@ -1,17 +1,22 @@
 import sys
 import unittest
-from algorithm import * #change to filename
+from primality import * 
+from sieveOfEratosthenes import *
 
+class prime_test(unittest.TestCase):
 
-class algorithm_test(unittest.TestCase):
+    def test_base(self): #check if accurate up to 10^5, check against sieve
+        """
+        note: with 100000 calls to the function and each call taking O((log n)^3)
+        time, this test is expected to take a few seconds.
+        """
+        n = 100000
+        s = sieve(n)
+        for i in range(n+1):
+            assert prime(i) == s[i]
 
-    def test_a(self): #insert test here
-        print("test a")
-        self.assertEqual(1,1)
-
-    def test_b(self): #insert test here
-        print("test b")
-        self.assertEqual(1,1)
+    
+        
 
 
 if __name__ == "__main__":
