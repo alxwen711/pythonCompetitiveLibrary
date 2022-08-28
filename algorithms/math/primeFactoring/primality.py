@@ -6,7 +6,9 @@ Last updated: August 26th, 2022
 Miller-Rabin primality test implementation. This is a probabilistic test,
 meaning that correct prime/composite determination is not guarenteed.
 That said the test uses 100 trials, and the chance of a false positive is
-at most 1 in 4^100 (about 1.6*10^60).
+at most 1 in 4^100 (about 1.6*10^60). Runtime is supposed to be O(k*(log n)^3),
+where k is the number of trials and n is the value being tested.
+Further testing to confirm this is needed.
 
 Steps:
 Check if n is even (if yes, 2 is prime, else comp)
