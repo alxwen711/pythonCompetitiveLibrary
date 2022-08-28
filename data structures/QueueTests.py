@@ -1,9 +1,6 @@
-from random import randint
 import unittest
-import sys
-sys.path.append("../../data\ structures")
-
 from Queue import queue
+from random import randint
 
 class queue_test(unittest.TestCase):
 
@@ -27,7 +24,7 @@ class queue_test(unittest.TestCase):
         for i in range(num):
             x.add(randint(1,1000000000))
         for _ in range(num):
-            x.dequeue()
+            assert x.dequeue() != None
         self.assertEqual(x.dequeue(),None) 
         
         
