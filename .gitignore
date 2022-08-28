@@ -12,8 +12,8 @@
 ## Python
 __pycache__/
 
-#############
 ## OS X
-#############
-
 *.DS_Store
+
+## Other
+*.swp
