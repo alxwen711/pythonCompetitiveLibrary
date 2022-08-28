@@ -18,7 +18,7 @@ This is a relatively new project I've began so all contributions are greatly app
 
 For creating a new algorithm or data structure file a template exists in [algorithm.py](./contributing/algorithm.py). For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTest.py](./contributing/algorithmTest.py).
 
-Once you have made additions in the form of code or documentation, submit a pull request and I will typically review it around 2-4 UTC daily. This is because I do not want to be merging while a CodeForces/CodeChef contest is occuring, and they do not occur at this time. 
+Once you have made additions in the form of code or documentation, submit a pull request and I will typically review it around 2-4 UTC daily. This is because I do not want to be merging while a CodeForces/CodeChef contest is occurring, and they do not occur at this time. 
 
 If I have not responded to a PR after two weeks without reason then and ONLY then you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above. 
 
@@ -26,5 +26,5 @@ If I have not responded to a PR after two weeks without reason then and ONLY the
 
 [**Discussion Thread** for future files to Add to this library](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2)
 
-Alternativly you can also create an [Issue](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) and tag it accordingly for new files you would like to see added.
+Alternatively you can also create an [Issue](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) and tag it accordingly for new files you would like to see added.
 
