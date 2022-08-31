@@ -1,18 +1,19 @@
-import sys
 import unittest
-from algorithm import * #change to filename
+from statistics import * 
+from random import randint
+#all methods are already known to be functionally correct
 
+class speed_test(unittest.TestCase):
 
-class algorithm_test(unittest.TestCase):
-
-    def test_a(self): #insert test here
-        print("test a")
-        self.assertEqual(1,1)
-
-    def test_b(self): #insert test here
-        print("test b")
-        self.assertEqual(1,1)
-
+    def test_speed(self):
+        ar = list()
+        n = 100000
+        for i in range(n):
+            ar.append(randint(0,1000000000))
+        print("mean:",avg(ar))
+        print("median:",median(ar))
+        print("mode:",mode(ar))
+        print("stddev:",std_dev(ar))
 
 if __name__ == "__main__":
     unittest.main()
