@@ -1,7 +1,5 @@
-import sys
 import unittest
-from sieveOfEratosthenes import * #change to filename
-
+from sieveOfEratosthenes import * 
 
 class sieve_test(unittest.TestCase):
 
@@ -17,9 +15,10 @@ class sieve_test(unittest.TestCase):
         x = sieve(1000000)
         assert sum(x) == 78498
 
-class fsieve_test(unittest.TestCase):
 
-    def test_acc(self): #fsieve usage in prime factorization
+class fsieve_test(unittest.TestCase): #mirror copy of sieve_test with acc test adjusted
+
+    def test_acc(self): 
         x = fsieve(100)
         primes = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
         for i in range(2,101):
