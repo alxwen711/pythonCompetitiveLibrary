@@ -27,19 +27,14 @@ def avg(ar: list):
     if len(ar) == 0: return None
     return sum(ar)/len(ar)
 
-
 def median(ar: list):
     if len(ar) == 0: return None
     br = ar.copy()
     br.sort()
     x = len(ar)
     if x % 2 == 1: return br[x//2]
-    else:
-        try: #return avg of two mid vals
-            return (br[x//2-1]+br[x//2])/2
-        except: #return left val
-            return br[x//2-1]
-
+    else: return (br[x//2-1]+br[x//2])/2
+        
 def mode(ar: list):
     #see freq_dict, d[x] = freq of x 
     if len(ar) == 0: return None
@@ -57,7 +52,6 @@ def mode(ar: list):
             ans = list()
         if d[k[j]] == high: ans.append(k[j])    
     return ans, high
-
 
 def std_dev(ar: list):
     """
