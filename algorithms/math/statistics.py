@@ -1,18 +1,25 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
-Last update: August 25th, 2022
+Last update: August 30th, 2022
 
-Statistics functions
+General statistics functions. All of the functions
+take O(n) time to complete except for median(), which
+takes O(n log n) time.
 
 avg(ar)
+Returns the average in a dataset.
 
 median(ar)
+Returns the middle value in a data set.
+For an even number of values the average
+of the two middle ones is returned.
 
 mode(ar)
+Returns an array containing the most common
+elements and their frequency.
 
 std_dev(ar)
-
+Returns the standard deviation of a dataset.
 """
 
 
@@ -34,17 +41,22 @@ def median(ar: list):
             return br[x//2-1]
 
 def mode(ar: list):
-    """
-    use freq_dict in some way here? return as list for mult modes
-    """
+    #see freq_dict, d[x] = freq of x 
     if len(ar) == 0: return None
     d = {}
     for i in range(len(ar)):
         x = ar[i]
         if d.get(x) == None: d[x] = 0
         d[x] += 1
-    #use keys here
-    return 1
+    k = list(d.keys())
+    high = 0
+    ans = list()
+    for j in range(len(k)):
+        if d[k[j]] > high:
+            high = d[k[j]]
+            ans = list()
+        if d[k[j]] == high: ans.append(k[j])    
+    return ans, high
 
 
 def std_dev(ar: list):
