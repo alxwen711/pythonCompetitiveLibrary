@@ -22,7 +22,7 @@ def fact_func(x: int, r: int) -> int: #may need to use other c's than 1
 def find_factor(n: int) -> int:
     x,y,a = 2,2,1
 
-    while a != 1: #unsure how many iterations are needed here
+    while a == 1: #unsure how many iterations are needed here
         #i += 1
         x = fact_func(x,n)
         y = fact_func(fact_func(y,n),n)
@@ -48,10 +48,11 @@ def div(n: int, ar: list, limit = inf) -> list[int]:
     return ar
 
 def trial_div(n: int, limit = inf) -> list[int]:
-    if n == 2 or n == 3: return [n]
+    if n <= 3: return [n]
     else: return div(n,list(),limit)
 
 def factorize(n: int) -> list[list[int]]:
+    if n <= 3: return [[n,1]] #0-1 edge cases
     #break n into smaller factors
     d = {}
     while n != 1:

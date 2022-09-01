@@ -1,17 +1,41 @@
-import sys
 import unittest
-from algorithm import * #change to filename
+from factorization import *
+from random import randint
 
+#needed for verification
+from primality import * 
+from sieveOfEratosthenes import *
 
-class algorithm_test(unittest.TestCase):
+class factor_test(unittest.TestCase):
+    
+    def test_basic(self): #test for 0 to 10000
+        s = sieve(10000) #100% prime/comp acc
+        for i in range(10001):
+            #test i
+            ar = factorize(i)
+            x = 1
+            for j in range(len(ar)):
+                factor = ar[j][0]
+                if factor > 1: assert s[ar[j][0]]
+                x *= (ar[j][0] ** ar[j][1])
+            assert x == i
 
-    def test_a(self): #insert test here
-        print("test a")
-        self.assertEqual(1,1)
+    def test_random(self): #random values up to 10^10
+        for i in range(100):
+            v = randint(0,10**10)
+            ar = factorize(v)
+            x = 1
+            for j in range(len(ar)):
+                factor = ar[j][0]
+                if factor > 1:
+                    if not prime(ar[j][0]):
+                        print("test failed on",v)
+                        self.fail(ar[j][0],"is not prime")
+                x *= (ar[j][0] ** ar[j][1])
+            assert x == v
 
-    def test_b(self): #insert test here
-        print("test b")
-        self.assertEqual(1,1)
+    
+
 
 
 if __name__ == "__main__":
