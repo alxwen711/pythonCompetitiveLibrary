@@ -28,7 +28,7 @@ class factor_test(unittest.TestCase):
             for j in range(len(ar)):
                 factor = ar[j][0]
                 if factor > 1:
-                    if not prime(ar[j][0]):
+                    if not prime(ar[j][0]): #1/4^100 chance this is wrong
                         print("test failed on",v)
                         self.fail(ar[j][0],"is not prime")
                 x *= (ar[j][0] ** ar[j][1])

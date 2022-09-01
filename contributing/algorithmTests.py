@@ -1,4 +1,3 @@
-import sys
 import unittest
 from algorithm import * #change to filename
 
