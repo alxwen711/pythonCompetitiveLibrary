@@ -22,9 +22,9 @@ Once you have made additions in the form of code or documentation, submit a pull
 
 If I have not responded to a PR after two weeks without reason then and ONLY then you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above. 
 
-# Requesting New Algorithm/Data Structure/File
+# Requesting New Files
 
-[**Discussion Thread** for future files to Add to this library](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2)
+There is currently a [**Discussion Thread**](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2) detailing future algorithms/data structures/other files I plan to implement into this library.
 
 Alternatively you can also create an [Issue](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) and tag it accordingly for new files you would like to see added.
 
