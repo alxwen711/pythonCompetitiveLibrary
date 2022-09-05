@@ -1,12 +1,10 @@
-#archive
+#WIP
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 25th, 2022
+Last updated: September 5th, 2022
 
-NOTE: This file alongside primality.py is planned to be combined
-together as it's more efficient than the trial div method
-currently used in this algorithm. Once primeFactorization.py is
-complete, this file is to be archived alongside its testfile.
+Various algorithms for determining if a number is prime and factorization.
+This file is a merging of former primality.py and factorization.py.
 
 Algorithms for factoring numbers using Pollard's rho algorithm.
 Runtime for finding a factor is about O(x**0.5), where x is the
@@ -19,6 +17,29 @@ these will be removed once the algorithm is fully functional.
 factorize returns factors in 2d array, each array is [factor, freq]
 """
 from math import gcd,sqrt,ceil,inf
+from random import randint
+
+def trial(n: int, s: int, a: int, d: int) -> bool:
+    val = pow(a,d,n)
+    if val == 1 or val == n-1: return False
+    for i in range(s-1):
+        val = pow(val,2,n)
+        if val == n-1: return False
+    return True
+
+def prime(n: int) -> bool:
+    if n == 2 or n == 3: return True
+    if n % 2 == 0 or n <= 1: return False
+    d,s = n-1,0
+    while d % 2 == 0:
+        s += 1
+        d = d // 2
+    for i in range(100):
+        a = randint(2,n-2)
+        if trial(n,s,a,d): return False
+    return True
+
+
 
 def fact_func(x: int, r: int) -> int: #may need to use other c's than 1
     return (x*x+1) % r
