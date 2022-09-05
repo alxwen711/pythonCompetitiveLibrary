@@ -1,7 +1,12 @@
-#WIP
+#archive
 """
 Author: alxwen711 (Alex Wen)
 Last updated: August 26th, 2022
+
+NOTE: This file alongside factorization.py is planned to be combined
+together as it's more efficient than the trial div method
+currently used in factorization.py. Once primeFactorization.py is
+complete, this file is to be archived alongside its testfile.
 
 Miller-Rabin primality test implementation. This is a probabilistic test,
 meaning that correct prime/composite determination is not guarenteed.
