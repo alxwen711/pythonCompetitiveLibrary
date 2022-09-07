@@ -3,6 +3,9 @@
 Author: alxwen711 (Alex Wen)
 Last updated: September 7th, 2022
 
+Note: The mess of code in this file is being cleaned up with proper
+documentation, but it is in a functional state for competitive programming.
+
 Various algorithms for determining if a number is prime and factorization.
 This file is a merging of former primality.py and factorization.py.
 
@@ -20,21 +23,25 @@ Runtime for finding a factor is about O(x**0.5), where x is the
 smallest factor remaining. Realistically the algorithm should be
 usable until 10^10.
 
-Note: various print statements are stil being kept for debugging purposes,
-these will be removed once the algorithm is fully functional.
-
 factorize returns factors in 2d array, each array is [factor, freq]
+
+prime(n)
+
+trial(n,s,a,d)
+
+fact_func(x,r,c)
+
+find_factor(n)
+
+factorize(n)
+
+div(n)
+
+trial_div(n)
 """
 from math import gcd,sqrt,ceil,inf
 from random import randint
 
-def trial(n: int, s: int, a: int, d: int) -> bool:
-    val = pow(a,d,n)
-    if val == 1 or val == n-1: return False
-    for i in range(s-1):
-        val = pow(val,2,n)
-        if val == n-1: return False
-    return True
 
 def prime(n: int) -> bool:
     if n == 2 or n == 3: return True
@@ -46,6 +53,15 @@ def prime(n: int) -> bool:
     for i in range(100):
         a = randint(2,n-2)
         if trial(n,s,a,d): return False
+    return True
+
+
+def trial(n: int, s: int, a: int, d: int) -> bool:
+    val = pow(a,d,n)
+    if val == 1 or val == n-1: return False
+    for i in range(s-1):
+        val = pow(val,2,n)
+        if val == n-1: return False
     return True
 
 
@@ -108,35 +124,7 @@ def factorize(n: int) -> list[list[int]]:
         if d[k[j]] != 0:
             ans.append([k[j],d[k[j]]])
     return ans
-        
-    """
-    while n != 1:
-        x = find_factor(n)
-        if d.get(x) == None: d[x] = 0
-        d[x] += 1
-        n = n // x
-    k = list(d.keys())
-    #print(d)
-    #check each factor using trial div, not all may be prime
-    #replacable with sieve
-    for i in range(len(k)):
-        #ar.append([k[i],d[k[i]]])
-        a,b = k[i],d[k[i]]
-        c = trial_div(a)
-        if len(c) != 1:
-            #print(a,c)
-            for m in range(len(c)):
-                if d.get(c[m]) == None: d[c[m]] = 0
-                d[c[m]] += b
-            d[a] = 0
-    #translate from dict to list[int]
-    k = list(d.keys())
-    ans = list()
-    for j in range(len(k)):
-        if d[k[j]] != 0:
-            ans.append([k[j],d[k[j]]])
-    return ans
-"""
+     
 
 #keep div and trial_div for completeness
 def div(n: int, ar: list, limit = inf) -> list[int]:
@@ -153,6 +141,7 @@ def div(n: int, ar: list, limit = inf) -> list[int]:
     ar.append(n)
     return ar
 
+
 def trial_div(n: int, limit = inf) -> list[int]:
     if n <= 3: return [n]
     else: return div(n,list(),limit)
@@ -161,10 +150,6 @@ def trial_div(n: int, limit = inf) -> list[int]:
 
 
 if __name__ == "__main__":
-    #wip testing, formal testcases are wip
-    #print(find_factor(1497631652873))
-    #print(find_factor(16))
     print(factorize(720))
-    #print(factorize(1497631652873*1497631652873))
     print(factorize((2*3*5*7*11*13*17*19*23*29)**100)) #982 decimal digits
     print(trial_div(2*3*7*7*121*19*8))
