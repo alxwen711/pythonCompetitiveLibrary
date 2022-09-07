@@ -1,10 +1,19 @@
 #WIP
 """
 Author: alxwen711 (Alex Wen)
-Last updated: September 5th, 2022
+Last updated: September 7th, 2022
 
 Various algorithms for determining if a number is prime and factorization.
 This file is a merging of former primality.py and factorization.py.
+
+Possible framework for factorization:
+
+1. check if prime first
+2. if not prime, run factor find up to 10 times to find a factor
+3. once factor is found, add to dict
+4. repeat 1 to 3 until prime
+5. check each factor, if not prime run 2.
+6. Convert to array
 
 Algorithms for factoring numbers using Pollard's rho algorithm.
 Runtime for finding a factor is about O(x**0.5), where x is the
@@ -41,41 +50,22 @@ def prime(n: int) -> bool:
 
 
 
-def fact_func(x: int, r: int) -> int: #may need to use other c's than 1
-    return (x*x+1) % r
+def fact_func(x: int, r: int, c: int) -> int: #may need to use other c's than 1
+    return (x*x+c) % r
 
 
-def find_factor(n: int) -> int:
-    x,y,a = 2,2,1
-
-    while a == 1: #unsure how many iterations are needed here
-        #i += 1
-        x = fact_func(x,n)
-        y = fact_func(fact_func(y,n),n)
-        a = gcd(n,abs(x-y))
-        if x == y:
-            break
-
+def find_factor(n: int) -> int: #assume a composite number is given
+    for c in range(1,11):
+        x,y,a = 2,2,1
+        while a == 1: #unsure how many iterations are needed here
+            x = fact_func(x,n,c)
+            y = fact_func(fact_func(y,n,c),n,c)
+            a = gcd(n,abs(x-y))
+            if x == y:
+                break
+        if a != n: break
     return a
 
-def div(n: int, ar: list, limit = inf) -> list[int]:
-
-    if n == 1: return ar
-    if n % 2 == 0:
-        ar.append(2)
-        return div(n//2,ar,limit)
-
-    for i in range(3,min(limit,ceil(sqrt(n+1))),2): #3,5,7,...,sqrt(n)
-        if n % i == 0:
-            ar.append(i)
-            return div(n//i,ar,limit)
-    #n is prime
-    ar.append(n)
-    return ar
-
-def trial_div(n: int, limit = inf) -> list[int]:
-    if n <= 3: return [n]
-    else: return div(n,list(),limit)
 
 def factorize(n: int) -> list[list[int]]:
     if n <= 3: return [[n,1]] #0-1 edge cases
@@ -107,6 +97,26 @@ def factorize(n: int) -> list[list[int]]:
         if d[k[j]] != 0:
             ans.append([k[j],d[k[j]]])
     return ans
+
+
+#keep div and trial_div for completeness
+def div(n: int, ar: list, limit = inf) -> list[int]:
+    if n == 1: return ar
+    if n % 2 == 0:
+        ar.append(2)
+        return div(n//2,ar,limit)
+
+    for i in range(3,min(limit,ceil(sqrt(n+1))),2): #3,5,7,...,sqrt(n)
+        if n % i == 0:
+            ar.append(i)
+            return div(n//i,ar,limit)
+    #n is prime
+    ar.append(n)
+    return ar
+
+def trial_div(n: int, limit = inf) -> list[int]:
+    if n <= 3: return [n]
+    else: return div(n,list(),limit)
 
 
 
