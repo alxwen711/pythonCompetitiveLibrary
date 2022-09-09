@@ -46,7 +46,7 @@ class hashmap:
         apartment,key = self.decode(x)
         if apartment.get(key) == None: apartment[key] = y
         else: apartment[key] += y
-        return y
+        return apartment[key]
     
 
 
