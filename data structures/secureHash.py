@@ -1,4 +1,3 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
 Last updated: September 8th, 2022
@@ -30,16 +29,36 @@ class hashmap:
             self.l.append({})
             self.q.append(potato)
         shuffle(self.q)
-        
     def decode(self, x: int) -> list[dict,int]:
         x = x ^ self.c
         xx = (x+self.f) % 100
         hm = self.l[self.q[xx]]
         x = x ^ self.d[xx]
         return hm,x
+    def get(self, x: int):
+        apartment,key = self.decode(x)
+        return apartment.get(key)
+    def set(self, x: int, y: int):
+        apartment,key = self.decode(x)
+        apartment[key] = y
+        return y
+    def inc(self, x: int, y: int):
+        apartment,key = self.decode(x)
+        if apartment.get(key) == None: apartment[key] = y
+        else: apartment[key] += y
+        return y
+    
 
 
 if __name__ == "__main__":
     print("lol you ain't breaking this")
     d = hashmap()
-    print(d.decode(100))
+    for i in range(10):
+        d.set(i,i)
+    for j in range(10):
+        assert d.get(j) == j
+    d.inc(2,1)
+    assert d.get(2) == 3
+    for k in range(10):
+        door,val = d.decode(k)
+        print(k,"is mapped to",val)
