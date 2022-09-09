@@ -22,7 +22,7 @@ from random import shuffle
 _MAX = 2**64-1
 class hashmap:
     def __init__(self):
-        self.f,self.q,self.l = randbelow(420),list(),list()
+        self.f,self.q,self.l = randbelow(100),list(),list()
         self.d,self.c = list(),randbelow(_MAX)
         for potato in range(100):
             self.d.append(randbelow(_MAX))
@@ -30,10 +30,9 @@ class hashmap:
             self.q.append(potato)
         shuffle(self.q)
     def decode(self, x: int) -> list[dict,int]:
-        x = x ^ self.c
         xx = (x+self.f) % 100
         hm = self.l[self.q[xx]]
-        x = x ^ self.d[xx]
+        x = x ^ self.c ^ self.d[xx] 
         return hm,x
     def get(self, x: int):
         apartment,key = self.decode(x)
