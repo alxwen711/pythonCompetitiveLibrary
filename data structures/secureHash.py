@@ -20,7 +20,7 @@ still be salty over one specific incident.
 from secrets import randbelow
 from random import shuffle
 _MAX = 2**64-1
-class hashmap:
+class hashmap: #overkill variation, I'm pretty sure this isn't reasonably breakable
     def __init__(self):
         self.f,self.q,self.l = randbelow(100),list(),list()
         self.d,self.c = list(),randbelow(_MAX)
@@ -30,10 +30,13 @@ class hashmap:
             self.q.append(potato)
         shuffle(self.q)
     def decode(self, x: int) -> list[dict,int]:
-        xx = (x+self.f) % 100
+        
+        xx = (x^self.c+self.f) % 100
+        """
         hm = self.l[self.q[xx]]
-        x = x ^ self.c ^ self.d[xx] 
-        return hm,x
+        x = x ^ self.d[xx]
+        """
+        return self.l[self.q[xx]], x ^ self.d[xx]
     def get(self, x: int):
         apartment,key = self.decode(x)
         return apartment.get(key)
@@ -46,8 +49,15 @@ class hashmap:
         if apartment.get(key) == None: apartment[key] = y
         else: apartment[key] += y
         return apartment[key]
-    
 
+_MA = 2**32-1
+a,b,c = randbelow(_MA),randbelow(_MA),randbelow(_MA)
+def hfunc(x: int) -> int:
+    x += a
+    x = (x ^ (x >> 30)) * b
+    x = (x ^ (x >> 27)) * c
+    return (x ^ (x >> 31))
+    
 
 if __name__ == "__main__":
     print("lol you ain't breaking this")
@@ -61,3 +71,5 @@ if __name__ == "__main__":
     for k in range(10):
         door,val = d.decode(k)
         print(k,"is mapped to",val)
+    for m in range(10):
+        print(m,"->",hfunc(m))
