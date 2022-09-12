@@ -18,3 +18,4 @@ __pycache__/
 ## Other
 *.swp
 archive/
+test/
