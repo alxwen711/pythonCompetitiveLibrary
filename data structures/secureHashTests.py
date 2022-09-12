@@ -13,9 +13,9 @@ for i in range(99999):
     x = (x * 5 + 1) & mask
 print(ar[:10])
 
-@unittest.skip("activate if testing standard dict")
+#@unittest.skip("activate if testing standard dict")
 class secure_test(unittest.TestCase):
-    @unittest.skip("testing adverse only")
+    #@unittest.skip("testing adverse only")
     def test_million(self): #speed test with 1000000 elements
         d = hashmap()
         n = 1000000
@@ -30,7 +30,7 @@ class secure_test(unittest.TestCase):
      
 #@unittest.skip("activate if testing secure dict")
 class normal_test(unittest.TestCase):
-    @unittest.skip("testing adverse only")
+    #@unittest.skip("testing adverse only")
     def test_million(self): #speed test with 1000000 elements
         d = {}
         n = 1000000

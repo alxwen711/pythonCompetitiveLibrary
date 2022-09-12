@@ -1,3 +1,4 @@
+#WIP
 """
 Author: alxwen711 (Alex Wen)
 Last updated: September 8th, 2022
@@ -52,11 +53,14 @@ class hashmap: #overkill variation, I'm pretty sure this isn't reasonably breaka
 
 _MA = 2**32-1
 a,b,c = randbelow(_MA),randbelow(_MA),randbelow(_MA)
-def hfunc(x: int) -> int:
+def hfunc(x: int) -> int: #how to create decoding function here
     x += a
     x = (x ^ (x >> 30)) * b
     x = (x ^ (x >> 27)) * c
     return (x ^ (x >> 31))
+
+def ifunc(x: int) -> int:
+    return x ^ a
     
 
 if __name__ == "__main__":
@@ -71,5 +75,10 @@ if __name__ == "__main__":
     for k in range(10):
         door,val = d.decode(k)
         print(k,"is mapped to",val)
+    print("hfunc")
     for m in range(10):
-        print(m,"->",hfunc(m))
+        print(m,"->",hfunc(m),"->",hfunc(hfunc(m)))
+    print("ifunc")
+    for w in range(10):
+        print(w,"->",ifunc(w),"->",ifunc(ifunc(w)))
+        
