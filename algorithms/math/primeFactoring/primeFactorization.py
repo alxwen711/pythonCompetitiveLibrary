@@ -1,4 +1,3 @@
-#WIP
 """
 Author: alxwen711 (Alex Wen)
 Last updated: September 7th, 2022
@@ -26,20 +25,36 @@ usable until 10^10.
 factorize returns factors in 2d array, each array is [factor, freq]
 
 prime(n)
+Determines if n is prime. Returns answer as a boolean value.
 
 trial(n,s,a,d)
+Used as part of prime. If this function returns True, then
+a "witness" was found in the prime test meaning that n is
+not prime.
 
 fact_func(x,r,c)
+Helper function used for find_factor(n). Defines a generating function to find a
+potential factor.
 
 find_factor(n)
+Helper function for factorize(n) used to find a factor of n. The factor returned
+is usually prime, but in the case it isn't, factorize(n) can be tried to factor
+it further, or trial_div if no progress is made. 
 
 factorize(n)
+Main method used for factoring. Given an integer n, returns a list of 2-tuples in
+form [x,y], x is the prime factor and y is the frequency it is in n.
 
 div(n)
+actual function that does the work for trial_div()
 
 trial_div(n)
+Trial divison, used as a last resort for factorization. Hopefully any values that
+end up here aren't too big. This part of the function only covers edge cases,
+actual work is done by div.
+
 """
-from math import gcd,sqrt,ceil,inf
+from math import gcd,sqrt,ceil
 from random import randint
 
 
@@ -65,6 +80,8 @@ def trial(n: int, s: int, a: int, d: int) -> bool:
     return True
 
 
+
+#copy only the code above if you just need a primality test
 
 def fact_func(x: int, r: int, c: int) -> int: #may need to use other c's than 1
     return (x*x+c) % r
@@ -127,24 +144,24 @@ def factorize(n: int) -> list[list[int]]:
      
 
 #keep div and trial_div for completeness
-def div(n: int, ar: list, limit = inf) -> list[int]:
+def div(n: int, ar: list) -> list[int]:
     if n == 1: return ar
     if n % 2 == 0:
         ar.append(2)
-        return div(n//2,ar,limit)
+        return div(n//2,ar)
 
-    for i in range(3,min(limit,ceil(sqrt(n+1))),2): #3,5,7,...,sqrt(n)
+    for i in range(3,ceil(sqrt(n+1)),2): #3,5,7,...,sqrt(n)
         if n % i == 0:
             ar.append(i)
-            return div(n//i,ar,limit)
+            return div(n//i,ar)
     #n is prime
     ar.append(n)
     return ar
 
 
-def trial_div(n: int, limit = inf) -> list[int]:
+def trial_div(n: int) -> list[int]:
     if n <= 3: return [n]
-    else: return div(n,list(),limit)
+    else: return div(n,list())
 
 
 
