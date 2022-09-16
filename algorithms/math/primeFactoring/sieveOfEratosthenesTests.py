@@ -1,6 +1,8 @@
 import unittest
 from sieveOfEratosthenes import * 
 
+#Example use can be found in exampleuses/230b.py
+
 class sieve_test(unittest.TestCase):
 
     def test_acc(self): #test 0 to 100
