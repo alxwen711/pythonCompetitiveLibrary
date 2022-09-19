@@ -1,5 +1,5 @@
 import unittest
-from algorithm import * #change to filename
+from algorithmTemplate import * #change to filename
 
 
 class algorithm_test(unittest.TestCase):
