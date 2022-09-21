@@ -2,27 +2,18 @@
 Author: alxwen711 (Alex Wen)
 Last updated: September 7th, 2022
 
-Note: The mess of code in this file is being cleaned up with proper
-documentation, but it is in a functional state for competitive programming.
+Note: The mess of code in this file is in a functional state for
+competitive programming. There will be attempted edits to make this faster.
 
 Various algorithms for determining if a number is prime and factorization.
 This file is a merging of former primality.py and factorization.py.
 
-Possible framework for factorization:
-
-1. check if prime first
-2. if not prime, run factor find up to 10 times to find a factor
-3. once factor is found, add to dict
-4. repeat 1 to 3 until prime
-5. check each factor, if not prime run 2.
-6. Convert to array
-
 Algorithms for factoring numbers using Pollard's rho algorithm.
 Runtime for finding a factor is about O(x**0.5), where x is the
-smallest factor remaining. Realistically the algorithm should be
-usable until 10^10.
+smallest factor remaining. Realistically the algorithm is
+consistent until 10^10, but can work until about 10^15 with random
+values.
 
-factorize returns factors in 2d array, each array is [factor, freq]
 
 prime(n)
 Determines if n is prime. Returns answer as a boolean value.
@@ -43,7 +34,7 @@ it further, or trial_div if no progress is made.
 
 factorize(n)
 Main method used for factoring. Given an integer n, returns a list of 2-tuples in
-form [x,y], x is the prime factor and y is the frequency it is in n.
+form [x,y], x is the prime factor and y is it's frequency in n.
 
 div(n)
 actual function that does the work for trial_div()
@@ -52,7 +43,6 @@ trial_div(n)
 Trial divison, used as a last resort for factorization. Hopefully any values that
 end up here aren't too big. This part of the function only covers edge cases,
 actual work is done by div.
-
 """
 from math import gcd,sqrt,ceil
 from random import randint
@@ -79,9 +69,10 @@ def trial(n: int, s: int, a: int, d: int) -> bool:
         if val == n-1: return False
     return True
 
-
-
 #copy only the code above if you just need a primality test
+
+
+
 
 def fact_func(x: int, r: int, c: int) -> int: #may need to use other c's than 1
     return (x*x+c) % r
@@ -162,8 +153,6 @@ def div(n: int, ar: list) -> list[int]:
 def trial_div(n: int) -> list[int]:
     if n <= 3: return [n]
     else: return div(n,list())
-
-
 
 
 if __name__ == "__main__":

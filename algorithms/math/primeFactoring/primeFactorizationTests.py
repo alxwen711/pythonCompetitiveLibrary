@@ -5,7 +5,8 @@ from sieveOfEratosthenes import * #needed for verification
 
 #prime tests
 class prime_test(unittest.TestCase):
-    
+
+    @unittest.skip("already successfully tested, skip for time convinience")    
     def test_base(self): #check if accurate up to 10^5, check against sieve
         """
         note: with 100000 calls to the function and each call taking O((log n)^3)
@@ -68,9 +69,10 @@ class prime_test(unittest.TestCase):
             assert not prime(c[i])
 
 #factorization tests (only consider this if prime tests pass)
+
 class factor_test(unittest.TestCase):
-    
-    def test_basic(self): #test for 0 to 10000
+    @unittest.skip("tested successfully, skip due to taking 6 seconds")
+    def test_basic(self): #test for 0 to 10000, may take a few seconds
         s = sieve(10000) #100% prime/comp acc
         for i in range(10001):
             #test i
@@ -81,10 +83,11 @@ class factor_test(unittest.TestCase):
                 if factor > 1: assert s[ar[j][0]]
                 x *= (ar[j][0] ** ar[j][1])
             assert x == i
-
-    def test_random(self): #random values up to 10^10
+            
+    
+    def test_random(self): #random values up to 10^15
         for i in range(100):
-            v = randint(0,10**10)
+            v = randint(0,10**15)
             ar = factorize(v)
             x = 1
             for j in range(len(ar)):
