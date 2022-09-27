@@ -7,25 +7,32 @@ Algorithm is modelled off of https://en.wikipedia.org/wiki/Extended_Euclidean_al
 
 dio(a,b,c)
 
+For the equation ax+by = c, a solution in the form (x,y) is returned as
+4 values (s,t,u,v), where all possible solutions are in the form (s+nu,t-nv)
+n is an integer.
+
 returns two values containing the integer solution to ax+by = c
 first value returned is a possible x value that gives an integer solution
-second value returned is the increment for x, this value is normally
-positive.
+second value returned is the positive increment for x.
 
-If -1,-1 is returned, then there is no solution.
+If (-1,-1,-1,-1) is returned, then there is no solution.
 
-Example: if something like (5,7) is returned then integer value
-solutions exist for x = 5,12,19,26,33...
-y can be solved manually from the x value
+Example: suppose the returned values are (5,3,7,2)
+The set of (x,y) solutions can be written as (5+7n,3-2n), n is an integer
+possible solutions are (5,3), (12,1), (-2,5), etc.
 """
 
 from math import gcd
 
-def dio(a: int, b: int, c: int) -> list[int,int]:
+def dio(a: int, b: int, c: int):
     #trivial a = b case
     if a == b: 
-        if c % a != 0: return -1,-1
-        else: return 0,1
+        if c % a != 0:
+            #return -1,-1
+            return -1,-1,-1,-1
+        else:
+            #return 0,1
+            return 0,c//b,1,1
         
     #use extended euclidian algorithm
     g = list() #gcd
@@ -46,22 +53,23 @@ def dio(a: int, b: int, c: int) -> list[int,int]:
         g.append(r)
         s.append(s[-2]-(s[-1]*q))
         t.append(t[-2]-(t[-1]*q))
-    if c % g[-1] != 0: return -1,-1
+    if c % g[-1] != 0: return -1,-1,-1,-1
 
     #solution exists s[-1],t[-1]
     ansa,ansb = s[-1],t[-1]
     ansa *= c//g[-1]
     ansb *= c//g[-1]
     ac = b//g[-1]
+    bc = a//g[-1]
 
-    return ansa,ac
+    #return ansa,ac
+    return ansa,ansb,ac,bc
 
 
 
 if __name__ == "__main__":
     a,b,c = 3,5,2
-    x,n = dio(a,b,c)
+    x,y,v,w = dio(a,b,c)
     print("possible solutions to "+str(a)+"x "+"+ "+str(b)+"y = "+str(c)+":")
-    print("x =",x,", y =",(2-a*x)//b)
-    x -= n
-    print("x =",x,", y =",(2-a*x)//b)
+    print("x =",x,", y =",y)
+    print("x =",x+v,", y =",y-w)
