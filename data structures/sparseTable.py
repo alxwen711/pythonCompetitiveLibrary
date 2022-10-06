@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 17th, 2022
+Last updated: October 5th, 2022
 
 Sparse table for returning range minimum queries (RMQ) in O(1) time.
 Initial creation of the table takes O(n log n) time.
@@ -42,7 +42,7 @@ def create_sparse(ar: list) -> list:
     return s
 
 
-def query(l: int, h: int, ar: list[list]):
+def query(l: int, h: int, ar: list):
     length = h-l+1
     #find largest x where 2**x <= length
     two = 1
@@ -57,7 +57,7 @@ def query(l: int, h: int, ar: list[list]):
     if length == two: return ar[ex][l]
     else: return min(ar[ex][l],ar[ex][h-two+1])
 
-def exact_query(l: int, h: int, ar: list[list]):
+def exact_query(l: int, h: int, ar: list):
     #default setting is to find minimum of subarray
     length = h-l+1
     s = str(bin(length))[2:]
