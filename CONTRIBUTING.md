@@ -1,4 +1,14 @@
 
+
+This is a relatively new project I've began so all contributions are greatly appreciated. Before contributing please read the [Style Guide](./docs/styleguide.md) for recommended code guidelines. Asides from these there isn't any other requirements other than making the code easy to use and understand.
+
+For creating a new algorithm or data structure file a template exists in [algorithmTemplate.py](./utility/algorithmTemplate.py). For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTemplateTests.py](./utility/algorithmTemplateTests.py).
+
+Once you have made additions in the form of code or documentation, submit a pull request and I will typically review it around 2-4 UTC daily. This is because I do not want to be merging while a CodeForces/CodeChef contest is occurring, and they do not occur at this time. 
+
+If I have not responded to a PR after two weeks without reason then and ONLY then you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above.
+
+
 ## Style Guide
 
 The main to keep in mind is that each Python file should be:
