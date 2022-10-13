@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: August 4th, 2022
+Last updated: October 13th, 2022
 
 Template for the queue data structure. The stack is made up of a 1D
 mutuable array. All queue methods are optimized to run as fast as
@@ -23,18 +23,17 @@ returns the number of elements in the queue.
 empty()
 checks if the queue is empty.
 
-Note: This data structure will slow down significantly with a large
-number of entries. It can handle up to about 500000 values added to
-it in under a second consistently, but this will vary depending on
-the testing system used. Further improvements that reduce the slowdown
-from excessive memory usage are being looked at.
+Oct 13th update: a memory refresh mechanism has been added so that once 
+100000 elements in are dequeued, the first 100000 values in the queue
+array are discarded to slightly reduce memory slowdown.
 """
 
 class queue:
-    def __init__(self):
+    def __init__(self,limit=100000):
         self.q = list()
         self.pt = 0
         self.l = 0
+        self.memRefresh = limit
 
     def add(self,x) -> None:
         self.q.append(x)
@@ -44,6 +43,11 @@ class queue:
         if self.empty(): return None 
         x = self.q[self.pt]
         self.pt += 1
+        #check if memory needs to be refreshed
+        if self.pt == self.memRefresh:
+            self.pt = 0
+            self.l -= self.memRefresh
+            self.q = self.q[self.memRefresh:]
         return x
 
     def top(self):
@@ -54,8 +58,7 @@ class queue:
         return self.l - self.pt
 
     def empty(self) -> bool:
-        if self.pt == self.l: return True
-        return False
+        return self.pt == self.l
 
 
 
