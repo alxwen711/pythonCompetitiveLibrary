@@ -41,5 +41,10 @@ In the above example, `low` and `high` hold index values for the section of the 
 #### Important note about list declaration
 If you are declaring a variable as a `list`, even if you know it will always be a `list[int]` or `list[list]` or `list[x]` just declare it as a `list` only. `list[list]` apparently has consistency issues and results in runtime error on the PyPy3 compiler.
 
+### Comments
 
+Brief 1 line comments within the code work best for explaining. If something in the code needs more comment lines then it's best to place it in the starting documentation block at the top of each file. 
 
+### Naming Conventions
+
+Some people like to use 1 character variable names to make the code as brief as possible. For shorter code or less important variables this is fine, but for larger variables I find it more clear to describe each varible with a full word or abbreviation. No need to name a variable too long like `SecondFibMemoryStorageValueIterator`. For function names, do not use single letter function names. The function names actually have to be long enough to understand and have to be different from each other across ALL files. That means if a function is named `test()` in `testexample.py`, then no other file should use `test` as a function name as the main use for this library is quick copy and paste functions for various tasks. Having two functions with the same name is trivially problematic.
