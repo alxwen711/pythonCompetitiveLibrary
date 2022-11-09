@@ -1,7 +1,7 @@
 """
 Author: alxwen711 (Alex Wen)
 
-Last updated: November 8th, 2022
+Last updated: November 9th, 2022
 
 O(n) implementation of the Knuth-Morris-Pratt algorithm for finding the longest
 prefix for each element in a string or array.
@@ -16,17 +16,18 @@ other values in the array only consider the first i+1 characters.
 """
 
 def prefix(x):
-    #return the last value here
     ar = [0]*len(x)
     for i in range(1,len(x)):
         v = ar[i-1]
-        while x[i] != x[v] and v > 0:
+        while x[i] != x[v] and v > 0: #stop when possible match is found
             v = ar[v-1]
-        if x[i] == x[v]:
+        if x[i] == x[v]: #if false, no prefix found -> 0
             v += 1
         ar[i] = v
     return ar
 
+
 if __name__ == "__main__":
-    #[include an example use here]
-    print(prefix("abaaaba"))
+    string = "abaaaba"
+    print("prefix array for "+string+":")
+    print(prefix(string))
