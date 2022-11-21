@@ -29,7 +29,7 @@ If ar is None then an empty dict is returned.
 
 from random import randint #for example use
 
-def freq_ar(ar: list[int], limit: int) -> list[int]:
+def freq_ar(ar: list, limit: int) -> list:
     if ar == None: return []
     h = [0]*limit #change to limit+1 for h[1] = freq of 1
     for i in range(len(ar)):
@@ -37,7 +37,7 @@ def freq_ar(ar: list[int], limit: int) -> list[int]:
     return h
 
 
-def freq_str(s) -> list[int]:
+def freq_str(s) -> list:
     ar = [0]*26
     offset = 97 #replace with 65 if upper
     for i in range(len(s)):
