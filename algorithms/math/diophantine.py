@@ -1,6 +1,6 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: September 27th, 2022
+Last updated: July 14th, 2024
 
 Diophantine equation solver
 ie. algorithm that tries to find integer (x,y)
@@ -22,6 +22,9 @@ possible solutions are (5,3), (12,1), (-2,5), etc.
 
 from math import gcd
 
+
+from math import gcd
+
 def dio(a: int, b: int, c: int):
     #trivial a = b case
     if a == b: 
@@ -29,6 +32,16 @@ def dio(a: int, b: int, c: int):
             return -1,-1,-1,-1
         else:
             return 0,c//b,1,1
+    # trivial 0 cases
+    if a == 0 and b == 0:
+        if c == 0: return 0,0,1,1
+        else: return -1,-1,-1,-1
+    if a == 0:
+        if c % b == 0: return 0,c//b,1,0
+        else: return -1,-1,-1,-1
+    if b == 0:
+        if c % a == 0: return c//a,0,0,1
+        else: return -1,-1,-1,-1
         
     #extended euclidian algorithm
     g = list() #gcd
@@ -63,7 +76,6 @@ def dio(a: int, b: int, c: int):
     bc = a//g[-1]
 
     return ansa,ansb,ac,bc
-
 
 
 if __name__ == "__main__":
