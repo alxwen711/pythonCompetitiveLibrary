@@ -1,7 +1,10 @@
 # Python Competitive Library
 This is a repository containing useful Python files for competitive programming. 
 
-# How to Use
+# How to Use (outdated)
+
+**NOTE: This repo is currently under reorganization and this section will be updated frequently. For full update checks at this current moment it is best to check [https://github.com/alxwen711/pythonCompetitiveLibrary/issues/4](https://github.com/alxwen711/pythonCompetitiveLibrary/issues/4)**
+
 The files are separated into four main folders:
 
 - [**Algorithms**](./algorithms) for implementation of DFS/BFS, binary/ternary search, dynamic programming, computational math problems, and other problem solving procedures.
