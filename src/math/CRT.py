@@ -95,3 +95,4 @@ def dio(a: int, b: int, c: int) -> list[int,int]:
 
 if __name__ == "__main__":
     #do stuff here
+    pass

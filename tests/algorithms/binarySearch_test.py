@@ -1,4 +1,3 @@
-import unittest
 from random import randint
 
 #binarySearch.py is copied for the examples here to demonstrate bfunc modularity
@@ -26,12 +25,10 @@ def bsearch(low: int, high: int, ar = None) -> int:
     else: return low
 
 
-class algorithm_test(unittest.TestCase):
-
-    def test_square(self):
-        for i in range(100000):
-            v = randint(1,100000000) #value to guess
-            self.assertEqual(bsearch(1,100000000,v**2),v)
+def test_square():
+    for _ in range(100000):
+        v = randint(1,100000000) #value to guess
+        assert bsearch(1,100000000,v**2) == v
 
 """
 binarySearch example using Problem 1701C on Codeforces
@@ -73,15 +70,11 @@ def solve(n: int, m: int, ar: list[int]) -> int:
     h = freq_ar(ar,n)
     return bsearch2(1,2*m,h)
 
-class codeforces_test(unittest.TestCase):
     
-    def test_case1(self):
-        #identical to testcase 1
-        self.assertEqual(solve(2,4,[1,2,1,2]),2)
-        self.assertEqual(solve(2,4,[1,1,1,1]),3)
-        self.assertEqual(solve(5,5,[5,1,3,2,4]),1)
-        self.assertEqual(solve(1,1,[1]),1)
+def test_case1():
+    #identical to testcase 1
+    assert solve(2,4,[1,2,1,2]) == 2
+    assert solve(2,4,[1,1,1,1]) == 3
+    assert solve(5,5,[5,1,3,2,4]) == 1
+    assert solve(1,1,[1]) == 1
         
-
-if __name__ == "__main__":
-    unittest.main()
