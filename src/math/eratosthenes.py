@@ -12,6 +12,7 @@ else x is composite.
 fsieve(n)
 Returns an array with n+1 elements. If A[x] == 1, x is prime,
 else x's smallest prime factor is stored (useful for prime factorization).
+Note that A[0] and A[1] will always equal 0 as they are not prime.
 """
 from math import sqrt, floor
 
@@ -28,6 +29,7 @@ def sieve(n: int) -> list[bool]:
 def fsieve(n: int) -> list[int]: 
     ar = [1]*max(2,(n+1))
     ar[0] = 0
+    ar[1] = 0
     for i in range(2,floor(sqrt(n))+1):
         if ar[i] == 1: #i is prime
             for j in range(i,n//i+1):

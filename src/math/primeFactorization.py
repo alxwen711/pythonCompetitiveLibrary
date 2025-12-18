@@ -17,6 +17,8 @@ values.
 
 prime(n)
 Determines if n is prime. Returns answer as a boolean value.
+NOTE: Currently has a bug due to failing on Carmichael numbers,
+being fixed in Issue #4.
 
 trial(n,s,a,d)
 Used as part of prime. If this function returns True, then
