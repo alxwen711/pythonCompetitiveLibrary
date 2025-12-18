@@ -1,9 +1,9 @@
 """
 Author: alxwen711 (Alex Wen)
-Last updated: July 29th, 2022
+Last updated: Dec 17th, 2025
 
 Fermat algorithms for quickly calculating n choose k mod r
-Note: use the single case function fermat_calc if r < 2
+NOTE: r must be a prime for these functions to work.
 
 fermat_calc(n,k,r)
 returns n choose k mod r in O(n) time
