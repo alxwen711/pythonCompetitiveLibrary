@@ -26,12 +26,6 @@ from math import gcd
 from math import gcd
 
 def dio(a: int, b: int, c: int):
-    #trivial a = b case
-    if a == b: 
-        if c % a != 0:
-            return -1,-1,-1,-1
-        else:
-            return 0,c//b,1,1
     # trivial 0 cases
     if a == 0 and b == 0:
         if c == 0: return 0,0,1,1
@@ -42,6 +36,12 @@ def dio(a: int, b: int, c: int):
     if b == 0:
         if c % a == 0: return c//a,0,0,1
         else: return -1,-1,-1,-1
+        #trivial a = b case
+    if a == b: 
+        if c % a != 0:
+            return -1,-1,-1,-1
+        else:
+            return 0,c//b,1,1
         
     #extended euclidian algorithm
     g = list() #gcd
