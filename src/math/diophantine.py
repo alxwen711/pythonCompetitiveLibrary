@@ -1,6 +1,6 @@
 """
-Author: alxwen711 (Alex Wen)
-Last updated: July 14th, 2024
+Authors: alxwen711 (Alex Wen), Giorgos003 (Giorgos Kotinis)
+Last updated: July 24th, 2026
 
 Diophantine equation solver
 ie. algorithm that tries to find integer (x,y)
@@ -19,9 +19,6 @@ Example: suppose the returned values are (5,3,7,2)
 The set of (x,y) solutions can be written as (5+7n,3-2n), n is an integer
 possible solutions are (5,3), (12,1), (-2,5), etc.
 """
-
-from math import gcd
-
 
 from math import gcd
 
