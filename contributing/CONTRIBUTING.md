@@ -1,5 +1,3 @@
-
-
 This is a relatively new project I've began so all contributions are greatly appreciated. Before contributing please read the [Style Guide](./docs/styleguide.md) for recommended code guidelines. Asides from these there isn't any other requirements other than making the code easy to use and understand.
 
 For creating a new algorithm or data structure file a template exists in [algorithmTemplate.py](./utility/algorithmTemplate.py). For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTemplateTests.py](./utility/algorithmTemplateTests.py).
