@@ -49,6 +49,10 @@ Use actually meaningful variable names. There's no need to make them overly long
 
 ## Easy to Modify
 
+### Python Version Compatibility
+
+Code should be implemented in a way so that as early of a `Python 3` version can be supported as possible without comprimisng runtime speed. The environment for this project is setup to use `Python 3.9` intentionally as nearly all online sites use compilers with at least this version or higher, with the exception of the USACO compiler using 3.6. `Python 2` is not a support requirement as it is no longer supported in the ICPC World Finals.
+
 ### Keep Code Reasonably Concise
 
 There will be cases where a user copies the code from a file and has to modify small parts of it to fit for a specific problem. Most online competitions are around 2 hours in length, so each of these files should be reasonably concise. There is no explicit limit on the length a file can be, but with that said, avoid adding files that exceed 200+ lines when possible.

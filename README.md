@@ -21,13 +21,11 @@ Go to [Contributing](#contributing) for directions on how to add to this codeboo
 
 The [`tests`](tests) folder contains unit tests for the `src` folder files and focuses on algorithm accuracy. For simpler files there are also basic stress tests to ensure the code created is viable for most competitive programming purposes.
 
-The [`contributing`](contributing) folder contains various markdown files for guidelines on adding/improving this repositiory, see [Contributing](#contributing) for more information.
-
 The [`utility`](utility) folder contains code not fitting into any of the above designations. This can include input shorthands inserted at the beginning of any file for efficiency purpose, testcase generators, or templates for creating new algorithm/data structure files. One example are shorthand functions to make processing input easier found in [baseTemplate.py](src/templates/baseTemplate.py).
 
 ## Python Support
 
-This resource is setup to support version Python 3.9 and later, which supports nearly all competitive programming use cases for Python. Additionally from the general [coding style](contributing/styleguide.md) guidelines for this project, you should find most code will have no issues on any Python 3 compiler ([the USACO compiler](https://usaco.org/index.php?page=instructions) uses Python 3.6.9 with NO PyPy speedup which makes USACO Gold and Platinum borderline impossible under Python, but the hope is that this online codebook may be able to bridge this gap.) As Python 2 is no longer supported in the ICPC World Finals, there are currently no plans to implement support for it. 
+This resource is setup to support version Python 3.9 and later, which supports nearly all competitive programming use cases for Python. Additionally from the general [coding style](styleguide.md) guidelines for this project, you should find most code will have no issues on any Python 3 compiler ([the USACO compiler](https://usaco.org/index.php?page=instructions) uses Python 3.6.9 with NO PyPy speedup which makes USACO Gold and Platinum borderline impossible under Python, but the hope is that this online codebook may be able to bridge this gap.) As Python 2 is no longer supported in the ICPC World Finals, there are currently no plans to implement support for it. 
 
 Generally, there will be minimal if any issues assuming that Python 3 is being used. You can use `conda env create -f environment.yml` and then `conda activate python_cf_env` to setup a basic Python environment that ensures all code runs as intended.
 
@@ -35,7 +33,7 @@ Generally, there will be minimal if any issues assuming that Python 3 is being u
 
 ## Coding Style
 
-See the [Style Guide](contributing/styleguide.md) for a more detailed explanation. Generally though each file should follow these key guidelines:
+See the [Style Guide](styleguide.md) for a more detailed explanation. Generally though each file should follow these key guidelines:
 
 - Easy to understand
 - Easy to modify for specific problems
@@ -47,7 +45,7 @@ Currently, `tests` folder mirrors `src` folder in structure and contains files f
 
 # Contributing
 
-All help to improving the coverage and reliability of this codebook is greatly appreciated. General discussion for the project is setup in [**Discussion Thread**](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2) and is mainly for tracking future algorithms/data structures/other files planned for implementation. [Issues](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) can be created in cases where there is a significant logical or efficiency flaw in a current file that can be improved. For more detailed guidelines for contributing, refer to [Contributing Guide](contributing/CONTRIBUTING.md) and the [Code of Conduct](contributing/CODE_OF_CONDUCT.md).
+All help to improving the coverage and reliability of this codebook is greatly appreciated. General discussion for the project is setup in [**Discussion Thread**](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2) and is mainly for tracking future algorithms/data structures/other files planned for implementation. [Issues](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) can be created in cases where there is a significant logical or efficiency flaw in a current file that can be improved. For more detailed guidelines for contributing, refer to [Contributing Guide](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Current Repo Plans
 
