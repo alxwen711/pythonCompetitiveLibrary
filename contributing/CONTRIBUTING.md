@@ -1,48 +1,42 @@
-This is a relatively new project I've began so all contributions are greatly appreciated. Before contributing please read the [Style Guide](./docs/styleguide.md) for recommended code guidelines. Asides from these there isn't any other requirements other than making the code easy to use and understand.
+# Contributing
 
-For creating a new algorithm or data structure file a template exists in [algorithmTemplate.py](./utility/algorithmTemplate.py). For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTemplateTests.py](./utility/algorithmTemplateTests.py).
+This is a relatively new project so all contributions are greatly appreciated. Before contributing please read the [Code of Conduct](CODE_OF_CONDUCT.md) and [Style Guide](styleguide.md) for recommended code guidelines. Asides from these there isn't any other requirements other than making the code easy to use and understand. Some of the ways to contribute include the following:
 
-Once you have made additions in the form of code or documentation, submit a pull request and I will typically review it around 2-4 UTC daily. This is because I do not want to be merging while a CodeForces/CodeChef contest is occurring, and they do not occur at this time. 
+- [Reporting and Fixing Bugs](#reporting-and-fixing-bugs)
+- [Adding New Algorithm Code](#adding-new-algorithm-code)
+- [Submitting Feedback](#submit-feedback)
 
-If I have not responded to a PR after two weeks without reason then and ONLY then you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above.
+## A Note on AI Generated Code
 
+There is no explicit restriction against AI generated code. It is reasonable that bots and AI tools can assist in useful contributions for tests and additional algorithm implementations it will be accepted here. However, all AI generated code is expected to follow these conditions:
 
-## Style Guide
+1. Any AI generated code must be acknowledged within the documentation of the files. This includes to what extent parts of the code were generated via AI tools and in any relevant pull requests the model(s) used for generating the code for potential reproducibility and reliability concerns.
 
-The main to keep in mind is that each Python file should be:
+2. All AI generated code must be human reviewed before a pull request. This means that code that was submitted exclusively by an autonoumous agent without any human intervention will not be considered. After all, this is a resource meant to be used for humans in competitive programming.
 
-- Easy to understand
-- Easy to modify for specific problems
-- Practical for use in competition
+3. AI generated code will be held to at minimum the same standard expected for all other additions to this repository.
 
-Below are a list of style guidelines I recommend based on past competitive programming experience:
+## Development Environment
 
-### Type Declarations
+To setup a sufficient development environment, ensure you have conda installed. Then run the following commands from the base folder:
 
-Only force type declaration if it is absolutely necessary. For instance, consider the basic function below that uses binary search on a sorted array `ar` to return the index `x` where `ar[x] == val`:
-
-```python
-def find_value(ar: list, low: int, high: int, val = -1) -> int:
-    if high - low <= 1: #at most two vals left, check endpoints
-        if ar[low] == val: return low
-        elif ar[high]: return high
-        else: return -1
-    #3+ vals left
-    mid = (low+high)//2 #midpoint
-    if ar[mid] == val: return mid
-    elif ar[mid] > val: return find_value(ar,low,mid,val)
-    else: return find_value(ar,mid,high,val)
+```bash
+conda env create -f environment.yml
+conda activate python_cf_env
 ```
 
-In the above example, `low` and `high` hold index values for the section of the array being searched. Indices in an array are always integers, thus `low` and `high` should be declared as `int`. `ar` must be an array thus it is declared as `list`, but notice that the type of list is not declared. The most common use for this function in competitive programming will be with`list[int]` but it can also work with `list[float]` and `list[str]`. The `val` we are searching for is not guarenteed to be any given type such as `int`, so it is not type declared and kept as an optional variable because Python does not allow mixing declared and undeclared variable types. Lastly, the return type can be declared as `int` since the function is expected to return an integer index value, or -1 if the value was not found in the array.
+If this is not possible, an environment with `Python>=3.9` and `pytest` setup will likely suffice.
 
-#### Important note about list declaration
-If you are declaring a variable as a `list`, even if you know it will always be a `list[int]` or `list[list]` or `list[x]` just declare it as a `list` only. `list[list]` apparently has consistency issues and results in runtime error on the PyPy3 compiler.
+## Reporting and Fixing Bugs
 
-### Comments
+There may be cases where certain parts of the codebook have slow implementations or critical flaws. In these cases report these in the [Issues](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) tab with all sufficient details necessary for reproducing the bug. 
 
-Brief 1 line comments within the code work best for explaining. If something in the code needs more comment lines then it's best to place it in the starting documentation block at the top of each file. 
+## Adding New Algorithm Code
 
-### Naming Conventions
+For creating a new algorithm or data structure file a template exists in [algorithmTemplate.py](utility/algorithmTemplate.py). For the multiline comment replace all square brackets with the appropriate information; everything else there is optional. Testfiles for quality assurance are also appreciated and a template for creating them is found in [algorithmTemplate_test.py](utility/algorithmTemplate_test.py).
 
-Some people like to use 1 character variable names to make the code as brief as possible. For shorter code or less important variables this is fine, but for larger variables I find it more clear to describe each varible with a full word or abbreviation. No need to name a variable too long like `SecondFibMemoryStorageValueIterator`. For function names, do not use single letter function names. The function names actually have to be long enough to understand and have to be different from each other across ALL files. That means if a function is named `test()` in `testexample.py`, then no other file should use `test` as a function name as the main use for this library is quick copy and paste functions for various tasks. Having two functions with the same name is trivially problematic.
+Once you have made additions in the form of code or documentation, submit a pull request and I will typically review it within a week assuming there isn't a CodeForces/CodeChef contest occurring, at that time. If I have not responded to a PR after two weeks without reason then and ONLY then you can follow [this guide](https://stackoverflow.com/questions/12686545/how-to-leave-a-message-for-a-github-com-user) to privately message me. For obvious reasons, please do not abuse the above.
+
+### Submit Feedback
+
+For other feedback or suggestions not covered by the previous points, [**Discussions**](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions) can be used.

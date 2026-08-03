@@ -47,7 +47,7 @@ Currently, `tests` folder mirrors `src` folder in structure and contains files f
 
 # Contributing
 
-All help to improving the coverage and reliability of this codebook is greatly appreciated. General discussion for the project is setup in [**Discussion Thread**](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2) and is mainly for tracking future algorithms/data structures/other files planned for implementation. [Issues](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) can be created in cases where there is a significant logical or efficiency flaw in a current file that can be improved. For more detailed guidelines for contributing, refer to [Contributing Guide](contributing/CONTRIBUTING.md).
+All help to improving the coverage and reliability of this codebook is greatly appreciated. General discussion for the project is setup in [**Discussion Thread**](https://github.com/alxwen711/pythonCompetitiveLibrary/discussions/2) and is mainly for tracking future algorithms/data structures/other files planned for implementation. [Issues](https://github.com/alxwen711/pythonCompetitiveLibrary/issues) can be created in cases where there is a significant logical or efficiency flaw in a current file that can be improved. For more detailed guidelines for contributing, refer to [Contributing Guide](contributing/CONTRIBUTING.md) and the [Code of Conduct](contributing/CODE_OF_CONDUCT.md).
 
 ## Current Repo Plans
 
